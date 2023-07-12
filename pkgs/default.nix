@@ -1,7 +1,6 @@
 { pkgs ? import <nixpkgs> { } }: rec {
 
   # Packages with an actual source
-  rgbdaemon = pkgs.callPackage ./rgbdaemon { };
   shellcolord = pkgs.callPackage ./shellcolord { };
   trekscii = pkgs.callPackage ./trekscii { };
   speedtestpp = pkgs.callPackage ./speedtestpp { };
@@ -15,7 +14,6 @@
   primary-xwayland = pkgs.callPackage ./primary-xwayland { };
   wl-mirror-pick = pkgs.callPackage ./wl-mirror-pick { };
   lyrics = pkgs.callPackage ./lyrics { };
-  xpo = pkgs.callPackage ./xpo { };
 
   # My slightly customized plymouth theme, just makes the blue outline white
   plymouth-spinner-monochrome = pkgs.callPackage ./plymouth-spinner-monochrome { };

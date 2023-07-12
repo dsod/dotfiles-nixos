@@ -36,9 +36,6 @@ in {
     # https://github.com/NixOS/nix/issues/5567#issuecomment-1193259926
     # nix = addPatches prev.nix [ ./nix-make-installables-expr-context.patch ];
 
-    # https://gitlab.com/CalcProgrammer1/OpenRGB/-/issues/2918
-    openrgb  = addPatches prev.openrgb [ ./openrgb-all-devices.diff ];
-
     xdg-utils-spawn-terminal = addPatches prev.xdg-utils [ ./xdg-open-spawn-terminal.diff ];
 
     pfetch = prev.pfetch.overrideAttrs (oldAttrs: {
@@ -60,7 +57,7 @@ in {
       pname = "scgit";
       version = "0.1";
       src = final.fetchFromSourcehut {
-        owner = "~misterio";
+        owner = "~dsod";
         repo = "scgit";
         rev = "2cd05c95827fb94740e876733dc6f7fe88340de2";
         sha256 = "sha256-95mRJ3ZCSkLHqehFQdwM2BY0h+YDhohwpnRiF6/lZtA=";

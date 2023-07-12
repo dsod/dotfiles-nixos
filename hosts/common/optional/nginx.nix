@@ -14,7 +14,6 @@ in
       virtualHosts."${hostName}.m7.rs" = {
         default = true;
         forceSSL = true;
-        enableACME = true;
         locations."/metrics" = {
           proxyPass = "http://localhost:${toString config.services.prometheus.exporters.nginxlog.port}";
         };

@@ -2,7 +2,6 @@
 { inputs, outputs, ... }: {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    ./acme.nix
     ./auto-upgrade.nix
     ./fish.nix
     ./locale.nix
@@ -10,7 +9,6 @@
     ./openssh.nix
     ./optin-persistence.nix
     ./podman.nix
-    ./ssh-serve-store.nix
     ./steam-hardware.nix
     ./systemd-initrd.nix
     ./tailscale.nix
