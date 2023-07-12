@@ -39,10 +39,6 @@ in
         settings = {
           trust-model = "tofu+pgp";
         };
-        publicKeys = [{
-          source = ../../pgp.asc;
-          trust = 5;
-        }];
       };
     };
 

@@ -5,7 +5,6 @@
     ./features/rgb
     ./features/productivity
     ./features/pass
-    ./features/games
     ./features/music
   ];
 

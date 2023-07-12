@@ -24,13 +24,7 @@ in
     ];
 
     openssh.authorizedKeys.keys = [ (builtins.readFile ../../../../home/misterio/ssh.pub) ];
-    passwordFile = config.sops.secrets.misterio-password.path;
     packages = [ pkgs.home-manager ];
-  };
-
-  sops.secrets.misterio-password = {
-    sopsFile = ../../secrets.yaml;
-    neededForUsers = true;
   };
 
   home-manager.users.misterio = import ../../../../home/misterio/${config.networking.hostName}.nix;

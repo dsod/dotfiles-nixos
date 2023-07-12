@@ -10,7 +10,6 @@
     ./openssh.nix
     ./optin-persistence.nix
     ./podman.nix
-    ./sops.nix
     ./ssh-serve-store.nix
     ./steam-hardware.nix
     ./systemd-initrd.nix
