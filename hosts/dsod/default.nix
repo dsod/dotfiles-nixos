@@ -22,7 +22,7 @@
   services.greetd.settings.default_session.user = "dsod";
 
   networking = {
-    hostName = "atlas";
+    hostName = "dsod";
     useDHCP = true;
     interfaces.enp8s0 = {
       useDHCP = true;
