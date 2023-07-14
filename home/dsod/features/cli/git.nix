@@ -1,6 +1,6 @@
 { pkgs, lib, config, ... }:
 {
-  home.packages = [ git-m7 ];
+  home.packages = [];
   programs.git = {
     enable = true;
     package = pkgs.gitAndTools.gitFull;

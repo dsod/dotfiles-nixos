@@ -87,7 +87,6 @@ in
           tooltip-format = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';
-          on-click = calendar;
         };
         cpu = {
           format = "   {usage}%";

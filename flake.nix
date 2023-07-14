@@ -62,8 +62,8 @@
           specialArgs = { inherit inputs outputs; };
         };
         # Secondary desktop
-        work-laptop = lib.nixosSystem {
-          modules = [ ./hosts/work-laptop ];
+        dsod-laptop = lib.nixosSystem {
+          modules = [ ./hosts/dsod-laptop ];
           specialArgs = { inherit inputs outputs; };
         };
       };
@@ -75,8 +75,8 @@
           pkgs = pkgsFor.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
         };
-        "dsod@work-laptop" = lib.homeManagerConfiguration {
-          modules = [ ./home/dsod/work-laptop.nix ];
+        "dsod@dsod-laptop" = lib.homeManagerConfiguration {
+          modules = [ ./home/dsod/dsod-laptop.nix ];
           pkgs = pkgsFor.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
         };
