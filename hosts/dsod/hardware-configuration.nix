@@ -1,5 +1,5 @@
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix")];
+  imports = [ ];
 
   boot = {
     initrd = {
