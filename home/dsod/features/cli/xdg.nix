@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    xdg-utils
     xdg-user-dirs
   ];
 
@@ -62,20 +61,5 @@
         XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/screenshots";
       };
     };
-  };
-
-  home.persistence = {
-    "/home/dsod".directories = [
-      config.xdg.userDirs.desktop
-      config.xdg.userDirs.documents
-      config.xdg.userDirs.downloads
-      config.xdg.userDirs.music
-      config.xdg.userDirs.pictures
-      config.xdg.userDirs.public
-      config.xdg.userDirs.templates
-      config.xdg.userDirs.videos
-      config.xdg.userDirs.screenshots
-      "$HOME/.local/bin"
-      ];
   };
 }

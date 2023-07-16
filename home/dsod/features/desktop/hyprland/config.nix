@@ -4,7 +4,7 @@ let
 in
 ''
   general {
-    sensitivity=0.5
+    sensitivity=1
     gaps_in=15
     gaps_out=20
     border_size=2.7
@@ -63,14 +63,14 @@ in
 
   input {
     kb_layout=us,se
-    kb_options = caps:super
+    kb_options = grp:alt_caps_toggle,caps:super
     follow_mouse=2
     accel_profile=flat
      repeat_delay = 300
     repeat_rate = 80
     touchpad {
         natural_scroll = yes
-        scroll_factor = 0.4
+        scroll_factor = 0.6
       disable_while_typing=false
     }
   }
@@ -79,6 +79,9 @@ in
   exec-once=waybar
   exec-once=mako
   exec-once=swayidle -w
+  exec-once=wpaperd
+
+  $hyprutils = ~/scripts/hypr_util
 
   # Mouse binding
   bindm=SUPER,mouse:272,movewindow
@@ -86,8 +89,7 @@ in
 
   # Program bindings
   bind=SUPER,q,exec,${TERMINAL}
-  bind=SUPER,w,exec,makoctl killactive
-  # bind=SUPER,w,exec,makoctl dismiss
+  bind=SUPER,w,killactive
   bind=SUPER,v,exec,${TERMINAL} $SHELL -ic ${EDITOR}
   bind=SUPER,b,exec,${BROWSER}
 
@@ -98,7 +100,7 @@ in
   bind=SUPER,s,exec,pass-wofi
 
   # Reset waybar
-  bind=SUPER,F1,exec, ~/.scripts/hypr-utils --rwb
+  bind=SUPER,F1,exec, $hyprutils --rwb
 
   # Lock screen
   bind=SUPER,l,exec,swaylock -S

@@ -3,7 +3,8 @@
   imports = [
     ./deluge.nix
     ./discord.nix
-    ./firefox.nix
+    ./chrome.nix
+    ./vscode.nix
     ./font.nix
     ./gtk.nix
     ./kdeconnect.nix

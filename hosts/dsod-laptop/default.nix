@@ -9,8 +9,11 @@
     ../common/global
     ../common/users/dsod
 
-    ../common/optional/pantheon.nix
+    ../common/optional/greetd.nix
+    ../common/optional/pipewire.nix
     ../common/optional/quietboot.nix
+    ../common/optional/wireless.nix
+    
   ];
 
   boot = {
@@ -19,25 +22,7 @@
   };
 
   networking = {
-    hostName = "dsod";
-    useDHCP = true;
-    interfaces.enp2s0 = {
-      useDHCP = true;
-      wakeOnLan.enable = true;
-
-      ipv4 = {
-        addresses = [{
-          address = "192.168.0.13";
-          prefixLength = 24;
-        }];
-      };
-      ipv6 = {
-        addresses = [{
-          address = "2804:14d:8084:a484::3";
-          prefixLength = 64;
-        }];
-      };
-    };
+    hostName = "dsod-laptop";
   };
 
   i18n.defaultLocale = "sv_SE.UTF-8";
@@ -60,5 +45,5 @@
     };
   };
 
-  system.stateVersion = "22.05";
+  system.stateVersion = "23.05";
 }

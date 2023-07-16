@@ -14,8 +14,6 @@
     extraConfig = {
       feature.manyFiles = true;
       init.defaultBranch = "main";
-      commit.gpgSign = true;
-      gpg.program = "${config.programs.gpg.package}/bin/gpg2";
     };
     lfs.enable = true;
     ignores = [ ".direnv" "result" ];

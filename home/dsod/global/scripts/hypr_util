@@ -4,27 +4,9 @@ restart_waybar() {
     #restart the waybar
     pkill waybar
 
-    waybar --bar main-bar --log-level error --config "$HOME/.config/hypr/waybar/config" --style "$HOME/.config/hypr/waybar/style.css"
+    waybar --bar main-bar --log-level error --config "$HOME/.config/waybar/config" --style "$HOME/.config/waybar/style.css"
 }
-
-switch_keyboard() {
-    layout_f=/tmp/kb_layout
-
-    case $(cat "$layout_f") in 
-    us)
-        hyprctl keyword input:kb_layout se
-        echo se > $layout_f
-        ;;
-    se)
-        hyprctl keyword input:kb_layout us
-        echo us > $layout_f
-        ;;
-    esac
-}
-
 
 if [[ "$1" == "--rwb" ]]; then
     restart_waybar
-elif [[ "$1" == "--swkb" ]]; then
-    switch_keyboard
 fi

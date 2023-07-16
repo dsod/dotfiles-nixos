@@ -26,6 +26,7 @@
   home.packages = with pkgs; [
     inputs.hyprwm-contrib.packages.${system}.grimblast
     swayidle
+    dconf
     # TODO
     # inputs.hyprland.packages.${system}.xdg-desktop-portal-hyprland
   ];
