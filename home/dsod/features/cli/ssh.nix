@@ -6,8 +6,4 @@ in
   programs.ssh = {
     enable = true;
   };
-
-  home.persistence = {
-    "/home/dsod".directories = [ ".ssh" ];
-  };
 }

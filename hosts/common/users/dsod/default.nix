@@ -2,7 +2,7 @@
 let ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
 in
 {
-  users.mutableUsers = false;
+  users.mutableUsers = true;
   users.users.dsod = {
     isNormalUser = true;
     shell = pkgs.fish;
@@ -28,7 +28,6 @@ in
   };
 
   home-manager.users.dsod = import ../../../../home/dsod/${config.networking.hostName}.nix;
-  
 
   services.geoclue2.enable = true;
   security.pam.services = { swaylock = { }; };
