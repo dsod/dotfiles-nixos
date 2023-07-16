@@ -100,7 +100,7 @@ in
   bind=SUPER,s,exec,pass-wofi
 
   # Reset waybar
-  bind=SUPER,F1,exec, $hyprutils --rwb
+  bind=SUPER,F1,exec, bash -c "$hyprutils --rwb"
 
   # Lock screen
   bind=SUPER,l,exec,swaylock -S

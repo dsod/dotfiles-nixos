@@ -4,7 +4,7 @@ restart_waybar() {
     #restart the waybar
     pkill waybar
 
-    waybar --bar main-bar --log-level error --config "$HOME/.config/waybar/config" --style "$HOME/.config/waybar/style.css"
+    waybar --log-level error --config "$HOME/.config/waybar/config" --style "$HOME/.config/waybar/style.css"
 }
 
 if [[ "$1" == "--rwb" ]]; then
