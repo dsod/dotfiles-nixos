@@ -6,7 +6,6 @@
         {
           nativeBuildInputs = [ gzip ];
           value = builtins.toJSON value;
-          passAsFile = [ "value" ];
         } ''
         gzip "$valuePath" -c > "$out"
       '')

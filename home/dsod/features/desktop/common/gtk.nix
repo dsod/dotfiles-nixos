@@ -8,7 +8,7 @@ rec {
     enable = true;
     font = {
       name = config.fontProfiles.regular.family;
-      size = 12;
+      size = 11;
     };
     theme = {
       name = "${config.colorscheme.slug}";
@@ -17,6 +17,11 @@ rec {
     iconTheme = {
       name = "Papirus";
       package = pkgs.papirus-icon-theme;
+    };
+    cursorTheme = {
+      name = "Catppuccin-Macchiato-Dark-Cursors";
+      package = pkgs.catppuccin-cursors.macchiatoDark;
+      size = 24;
     };
   };
 

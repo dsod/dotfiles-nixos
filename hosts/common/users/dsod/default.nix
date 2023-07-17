@@ -13,7 +13,7 @@ in
     ] ++ ifTheyExist [
       "minecraft"
       "network"
-      "netowkrmanager"
+      "networkmanager"
       "wireshark"
       "i2c"
       "mysql"

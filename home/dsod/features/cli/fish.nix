@@ -4,6 +4,7 @@ let
   hasPackage = pname: lib.any (p: p ? pname && p.pname == pname) config.home.packages;
   hasRipgrep = hasPackage "ripgrep";
   hasExa = hasPackage "exa";
+  hasBitwardenCli = hasPackage "bitwarden-cli";
   hasNeovim = config.programs.neovim.enable;
   hasEmacs = config.programs.emacs.enable;
   hasNeomutt = config.programs.neomutt.enable;
@@ -25,12 +26,12 @@ in
       nbn = "nix build nixpkgs#";
       nf = "nix flake";
 
-      nr = "nixos-rebuild --flake .";
-      nrs = "nixos-rebuild --flake . switch";
-      snr = "sudo nixos-rebuild --flake .";
-      snrs = "sudo nixos-rebuild --flake . switch";
-      hm = "home-manager --flake .";
-      hms = "home-manager --flake . switch";
+      nr = "nixos-rebuild --flake ~/dotfiles";
+      nrs = "nixos-rebuild --flake ~/dotfiles switch";
+      snr = "sudo nixos-rebuild --flake ~/dotfiles";
+      snrs = "sudo nixos-rebuild --flake ~/dotfiles switch";
+      hm = "home-manager --flake ~/dotfiles";
+      hms = "home-manager --flake ~/dotfiles switch";
 
       ls = mkIf hasExa "exa";
 
@@ -50,6 +51,8 @@ in
     shellAliases = {
       # Clear screen and scrollback
       clear = "printf '\\033[2J\\033[3J\\033[1;1H'";
+      bwp = mkIf hasBitwardenCli "BITWARDENCLI_APPDATA_DIR=~/.config/Bitwarden\ CLI\ Personal bw $@";
+      bww = mkIf hasBitwardenCli "BITWARDENCLI_APPDATA_DIR=~/.config/Bitwarden\ CLI\ Work bw $@";
     };
     functions = {
       # Disable greeting

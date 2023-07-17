@@ -13,7 +13,8 @@
     ../common/optional/pipewire.nix
     ../common/optional/quietboot.nix
     ../common/optional/wireless.nix
-    
+    ../common/optional/bluetooth.nix
+    ../common/optional/thunar.nix
   ];
 
   boot = {
@@ -24,8 +25,6 @@
   networking = {
     hostName = "dsod-laptop";
   };
-
-  i18n.defaultLocale = "sv_SE.UTF-8";
 
   boot.kernelModules = [ "coretemp" ];
   services.thermald.enable = true;

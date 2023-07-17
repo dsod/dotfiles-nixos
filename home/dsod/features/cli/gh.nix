@@ -8,7 +8,4 @@
       prompt = "enabled";
     };
   };
-  home.persistence = {
-    "/home/dsod".directories = [ ".config/gh" ];
-  };
 }

@@ -4,15 +4,14 @@ let
 in
 ''
   general {
-    sensitivity=1
-    gaps_in=15
-    gaps_out=20
+    sensitivity=0.5
+    gaps_in=10
+    gaps_out=15
     border_size=2.7
     col.active_border=0xff${colorscheme.colors.base0C}
     col.inactive_border=0xff${colorscheme.colors.base02}
     col.group_border_active=0xff${colorscheme.colors.base0B}
     col.group_border=0xff${colorscheme.colors.base04}
-    cursor_inactive_timeout=4
   }
 
   decoration {
@@ -62,24 +61,37 @@ in
   }
 
   input {
+    force_no_accel=true
     kb_layout=us,se
     kb_options = grp:alt_caps_toggle,caps:super
     follow_mouse=2
     accel_profile=flat
-     repeat_delay = 300
+    repeat_delay = 300
     repeat_rate = 80
     touchpad {
-        natural_scroll = yes
-        scroll_factor = 0.6
+      natural_scroll = yes
+      scroll_factor = 0.6
       disable_while_typing=false
     }
   }
 
   # Startup
+  exec-once = blueman-applet
+  exec-once = nm-applet --indicator
   exec-once=waybar
   exec-once=mako
   exec-once=swayidle -w
   exec-once=wpaperd
+  exec-once=hyprctl setcursor Catppuccin-Macchiato-Dark-Cursors 24
+
+  windowrule=workspace 1 silent,kitty
+  windowrule=workspace 2 silent,google-chrome-stable
+  windowrule=workspace 5 silent,slack
+  windowrule=workspace 5 silent,spotify
+
+  windowrule=float,blueman
+  windowrule=float,nm-connection-editor|pavucontrolk
+  windowrule=float,thunar
 
   $hyprutils = ~/scripts/hypr_util
 
@@ -93,14 +105,11 @@ in
   bind=SUPER,v,exec,${TERMINAL} $SHELL -ic ${EDITOR}
   bind=SUPER,b,exec,${BROWSER}
 
-  bind=SUPER,d,exec,wofi -S drun -x 10 -y 10 -W 25% -H 60%
-  bind=SUPER,space,exec,wofi -S run
-  bind=,Scroll_Lock,exec,pass-wofi # fn+k
-  bind=,XF86Calculator,exec,pass-wofi # fn+f12
+  bind=SUPER,space,exec,wofi -S drun --width 600 --height 400
   bind=SUPER,s,exec,pass-wofi
 
   # Reset waybar
-  bind=SUPER,F1,exec, bash -c "$hyprutils --rwb"
+  bind=SUPER,F1,exec, bash -c "~/.scripts/hypr_util --rwb"
 
   # Lock screen
   bind=SUPER,l,exec,swaylock -S
@@ -133,7 +142,7 @@ in
 
 
   # Window manager controls
-  bind=SUPER,s,togglesplit
+  bind=SUPER,t,togglesplit
   bind=SUPER,f,fullscreen,1
   bind=SUPERSHIFT,f,fullscreen,0
   bind=SUPERSHIFT,space,togglefloating
@@ -210,18 +219,6 @@ in
   bind=SUPER,8,workspace,08
   bind=SUPER,9,workspace,09
   bind=SUPER,0,workspace,10
-  bind=SUPER,f1,workspace,11
-  bind=SUPER,f2,workspace,12
-  bind=SUPER,f3,workspace,13
-  bind=SUPER,f4,workspace,14
-  bind=SUPER,f5,workspace,15
-  bind=SUPER,f6,workspace,16
-  bind=SUPER,f7,workspace,17
-  bind=SUPER,f8,workspace,18
-  bind=SUPER,f9,workspace,19
-  bind=SUPER,f10,workspace,20
-  bind=SUPER,f11,workspace,21
-  bind=SUPER,f12,workspace,22
 
   bind=SUPERSHIFT,1,movetoworkspacesilent,01
   bind=SUPERSHIFT,2,movetoworkspacesilent,02
@@ -233,18 +230,6 @@ in
   bind=SUPERSHIFT,8,movetoworkspacesilent,08
   bind=SUPERSHIFT,9,movetoworkspacesilent,09
   bind=SUPERSHIFT,0,movetoworkspacesilent,10
-  bind=SUPERSHIFT,f1,movetoworkspacesilent,11
-  bind=SUPERSHIFT,f2,movetoworkspacesilent,12
-  bind=SUPERSHIFT,f3,movetoworkspacesilent,13
-  bind=SUPERSHIFT,f4,movetoworkspacesilent,14
-  bind=SUPERSHIFT,f5,movetoworkspacesilent,15
-  bind=SUPERSHIFT,f6,movetoworkspacesilent,16
-  bind=SUPERSHIFT,f7,movetoworkspacesilent,17
-  bind=SUPERSHIFT,f8,movetoworkspacesilent,18
-  bind=SUPERSHIFT,f9,movetoworkspacesilent,19
-  bind=SUPERSHIFT,f10,movetoworkspacesilent,20
-  bind=SUPERSHIFT,f11,movetoworkspacesilent,21
-  bind=SUPERSHIFT,f12,movetoworkspacesilent,22
 
   blurls=waybar
 ''

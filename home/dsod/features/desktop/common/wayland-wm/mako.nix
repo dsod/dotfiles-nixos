@@ -14,6 +14,7 @@ in {
     width = 400;
     height = 150;
     borderSize = 2;
+    borderRadius = 6;
     defaultTimeout = 12000;
     backgroundColor = "#${colors.base00}dd";
     borderColor = "#${colors.base03}dd";

@@ -24,6 +24,6 @@
 
   environment.enableAllTerminfo = true;
 
-  hardware.enableRedistributableFirmware = true;
+  hardware.enableRedistributableFirmware = true; 
 
 }

@@ -16,15 +16,10 @@
   };
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/25b05317-e27d-4d6c-9060-c1383e51ce8b";
+    { device = "/dev/disk/by-uuid/1838717c-e3ba-4385-9541-2daffa9fa75b";
       fsType = "ext4";
     };
 
-
-  swapDevices = [{
-    device = "/swap/swapfile";
-    size = 8196;
-  }];
 
   nixpkgs.hostPlatform.system = "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = true;

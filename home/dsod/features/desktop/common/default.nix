@@ -11,10 +11,6 @@
     ./pavucontrol.nix
     ./playerctl.nix
     ./qt.nix
-  ];
-
-  xdg.mimeApps.enable = true;
-  home.packages = with pkgs; [
-    xdg-utils-spawn-terminal
+    ./slack.nix
   ];
 }

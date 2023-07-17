@@ -3,9 +3,10 @@
   home.packages = with pkgs; [
     wpaperd
   ];
+
   home.file.".config/wpaperd/wallpaper.toml".source = ./wallpaper.toml;
 
-  home.file."${config.xdg.userDirs.pictures}/wallpapers" = {
+  home.file."pictures/wallpapers" = {
     source = ./wallpapers;
     recursive = true;
   };

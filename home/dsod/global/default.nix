@@ -9,6 +9,9 @@ in
     ../features/cli
     ../features/nvim
     ../features/helix
+    ../features/productivity
+    ../features/music
+    ../features/pass
     ./wpaperd
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 

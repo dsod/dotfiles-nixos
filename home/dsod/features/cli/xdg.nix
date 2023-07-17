@@ -1,12 +1,12 @@
 { config, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    xdg-user-dirs
+    xdg-utils
   ];
-
   xdg = {
     enable = true;
     cacheHome = config.home.homeDirectory + "/.local/cache";
+
 
     mimeApps = {
       enable = true;
@@ -58,7 +58,7 @@
         XDG_PUBLICSHARE_DIR="$HOME/public";
         XDG_TEMPLATES_DIR="$HOME/templates";
         XDG_VIDEOS_DIR="$HOME/videos";
-        XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/screenshots";
+        XDG_SCREENSHOTS_DIR = "$HOME/pictures/screenshots";
       };
     };
   };

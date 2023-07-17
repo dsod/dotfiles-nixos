@@ -2,12 +2,19 @@
   imports = [
     ./global
     ./features/desktop/hyprland
-    ./features/productivity
-    ./features/pass
-    ./features/music
   ];
 
   colorscheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
+
+   systemd.user.sessionVariables = {
+    "NIXOS_OZONE_WL" = "1"; # for any ozone-based browser & electron apps to run on wayland
+    "XDG_SESSION_TYPE" = "wayland";
+    "XCURSOR_THEME" = "Catppuccin-Macchiato-Dark-Cursors";
+  };
+
+  xresources.properties = {
+    "Xft.dpi" = 86;
+  };
 
   monitors = [
     {
