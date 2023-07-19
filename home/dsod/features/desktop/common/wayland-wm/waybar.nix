@@ -71,8 +71,8 @@ in
           device = "intel_backlight";
           format = "{icon} {percent}%";
           format-icons = ["󰃞" "󰃟" "󰃠"];
-          on-scroll-up = "brightnessctl set 2%+";
-          on-scroll-down = "brightnessctl set 2%-";
+          on-scroll-up = "light -A 5";
+          on-scroll-down = "light -U 5";
           min-length = 6;
         };
 

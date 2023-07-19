@@ -22,6 +22,10 @@
 
   networking = {
     hostName = "dsod";
+    extraHosts = ''
+      127.0.0.1   qbank3-dev qbank3-dev.localhost minio mediaportals.localhost
+      ::1   qbank3-dev qbank3-dev.localhost minio mediaportals.localhost
+    '';
   };
 
   boot = {
@@ -34,6 +38,7 @@
     dconf.enable = true;
     kdeconnect.enable = true;
   };
+
 
   xdg.portal = {
     enable = true;

@@ -3,6 +3,9 @@ let
   inherit (home.sessionVariables) TERMINAL BROWSER EDITOR;
 in
 ''
+  monitor=,preferred,auto,auto
+  monitor=desc:Samsung Electric Company C34H89x HTOM900062, 3440x1440@100, auto, auto
+
   general {
     sensitivity=0.5
     gaps_in=10
@@ -75,6 +78,10 @@ in
     }
   }
 
+  device:dell097d:00-04f3:311c-touchpad {
+    sensitivity = 0
+}
+
   # Startup
   exec-once = blueman-applet
   exec-once = nm-applet --indicator
@@ -84,7 +91,6 @@ in
   exec-once=wpaperd
   exec-once=hyprctl setcursor Catppuccin-Macchiato-Dark-Cursors 24
 
-  windowrule=workspace 1 silent,kitty
   windowrule=workspace 2 silent,google-chrome-stable
   windowrule=workspace 5 silent,slack
   windowrule=workspace 5 silent,spotify
@@ -92,6 +98,10 @@ in
   windowrule=float,blueman
   windowrule=float,nm-connection-editor|pavucontrolk
   windowrule=float,thunar
+
+  # Lid switches
+  bindl =,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
+  bindl =,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, preferred,auto,auto"
 
   $hyprutils = ~/scripts/hypr_util
 
@@ -108,6 +118,11 @@ in
   bind=SUPER,space,exec,wofi -S drun --width 600 --height 400
   bind=SUPER,s,exec,pass-wofi
 
+  bind = SUPER, c, exec, hyprpicker -a
+  bind = SUPER, V, exec, cliphist list | wofi -c ~/.config/wofi/config-text | cliphist decode | wl-copy
+  bind = SUPER, D, exec, tmuxp ls | wofi -c ~/.config/wofi/config-text | xargs -I \{\} foot tmuxp load \{\}
+  bind = SUPER, E, exec, thunar # Show the graphical file browser
+
   # Reset waybar
   bind=SUPER,F1,exec, bash -c "~/.scripts/hypr_util --rwb"
 
@@ -122,8 +137,8 @@ in
   bind=ALT,Print,exec,grimblast --notify copy output
 
   # Keyboard controls (brightness, media, sound, etc)
-  bind=,XF86MonBrightnessUp,exec,light -A 10
-  bind=,XF86MonBrightnessDown,exec,light -U 10
+  bind=,XF86MonBrightnessUp,exec,light -A 5
+  bind=,XF86MonBrightnessDown,exec,light -U 5
 
   bind=,XF86AudioNext,exec,playerctl next
   bind=,XF86AudioPrev,exec,playerctl previous
@@ -166,45 +181,19 @@ in
   bind=SUPER,k,movefocus,u
   bind=SUPER,j,movefocus,d
 
-  bind=SUPERSHIFT,left,swapwindow,l
-  bind=SUPERSHIFT,right,swapwindow,r
-  bind=SUPERSHIFT,up,swapwindow,u
-  bind=SUPERSHIFT,down,swapwindow,d
-  bind=SUPERSHIFT,h,swapwindow,l
-  bind=SUPERSHIFT,l,swapwindow,r
-  bind=SUPERSHIFT,k,swapwindow,u
-  bind=SUPERSHIFT,j,swapwindow,d
+  bind = SUPERSHIFT, 1, movetoworkspace, 1
+  bind = SUPERSHIFT, 2, movetoworkspace, 2
+  bind = SUPERSHIFT, 3, movetoworkspace, 3
+  bind = SUPERSHIFT, 4, movetoworkspace, 4
+  bind = SUPERSHIFT, 5, movetoworkspace, 5
+  bind = SUPERSHIFT, 6, movetoworkspace, 6
+  bind = SUPERSHIFT, 7, movetoworkspace, 7
+  bind = SUPERSHIFT, 8, movetoworkspace, 8
+  bind = SUPERSHIFT, 9, movetoworkspace, 9
+  bind = SUPERSHIFT, 0, movetoworkspace, 10
 
-  bind=SUPERCONTROL,left,focusmonitor,l
-  bind=SUPERCONTROL,right,focusmonitor,r
-  bind=SUPERCONTROL,up,focusmonitor,u
-  bind=SUPERCONTROL,down,focusmonitor,d
-  bind=SUPERCONTROL,h,focusmonitor,l
-  bind=SUPERCONTROL,l,focusmonitor,r
-  bind=SUPERCONTROL,k,focusmonitor,u
-  bind=SUPERCONTROL,j,focusmonitor,d
-
-  bind=SUPERCONTROL,1,focusmonitor,DP-1
-  bind=SUPERCONTROL,2,focusmonitor,DP-2
-  bind=SUPERCONTROL,3,focusmonitor,DP-3
-
-  bind=SUPERCONTROLSHIFT,left,movewindow,mon:l
-  bind=SUPERCONTROLSHIFT,right,movewindow,mon:r
-  bind=SUPERCONTROLSHIFT,up,movewindow,mon:u
-  bind=SUPERCONTROLSHIFT,down,movewindow,mon:d
-  bind=SUPERCONTROLSHIFT,h,movewindow,mon:l
-  bind=SUPERCONTROLSHIFT,l,movewindow,mon:r
-  bind=SUPERCONTROLSHIFT,k,movewindow,mon:u
-  bind=SUPERCONTROLSHIFT,j,movewindow,mon:d
-
-  bind=SUPERALT,left,movecurrentworkspacetomonitor,l
-  bind=SUPERALT,right,movecurrentworkspacetomonitor,r
-  bind=SUPERALT,up,movecurrentworkspacetomonitor,u
-  bind=SUPERALT,down,movecurrentworkspacetomonitor,d
-  bind=SUPERALT,h,movecurrentworkspacetomonitor,l
-  bind=SUPERALT,l,movecurrentworkspacetomonitor,r
-  bind=SUPERALT,k,movecurrentworkspacetomonitor,u
-  bind=SUPERALT,j,movecurrentworkspacetomonitor,d
+  bind = SUPERSHIFT, mouse_down, movecurrentworkspacetomonitor, -1
+  bind = SUPERSHIFT, mouse_up, movecurrentworkspacetomonitor, +1
 
   bind=SUPER,u,togglespecialworkspace
   bind=SUPERSHIFT,u,movetoworkspace,special

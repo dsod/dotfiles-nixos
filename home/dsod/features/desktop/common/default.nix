@@ -12,5 +12,7 @@
     ./playerctl.nix
     ./qt.nix
     ./slack.nix
+    ./filezilla.nix
+    ../../cloud
   ];
 }

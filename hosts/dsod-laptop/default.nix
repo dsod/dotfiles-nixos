@@ -15,6 +15,7 @@
     ../common/optional/wireless.nix
     ../common/optional/bluetooth.nix
     ../common/optional/thunar.nix
+    ../common/optional/docker.nix
   ];
 
   boot = {
@@ -22,15 +23,31 @@
     binfmt.emulatedSystems = [ "aarch64-linux" "i686-linux" ];
   };
 
+  programs.light.enable = true;
+
   networking = {
     hostName = "dsod-laptop";
+    extraHosts = ''
+      127.0.0.1 localhost qbank3-dev qbank3-dev.localhost minio mediaportals.localhost
+      ::1 localhostqbank3-dev qbank3-dev.localhost minio mediaportals.localhost
+    '';
   };
 
   boot.kernelModules = [ "coretemp" ];
   services.thermald.enable = true;
+  # services.xserver.videoDrivers = ["nvidia"]; Doesn't work yet :(
   environment.etc."sysconfig/lm_sensors".text = ''
     HWMON_MODULES="coretemp"
   '';
+
+  programs = {
+    dconf.enable = true;
+  };
+
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+  };
 
   hardware = {
     nvidia = {
