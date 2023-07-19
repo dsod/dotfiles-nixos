@@ -14,6 +14,7 @@
     extraConfig = {
       feature.manyFiles = true;
       init.defaultBranch = "main";
+      pull.rebase = true;
     };
     lfs.enable = true;
     ignores = [ ".direnv" "result" ];
