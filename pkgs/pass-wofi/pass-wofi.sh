@@ -18,7 +18,7 @@ fi
 
 selected=$(find -L . -not -path '*\/.*' -path "*.gpg" -type f -printf '%P\n' | \
   sed 's/.gpg$//g' | \
-  wofi -S dmenu -Q "$query") || exit 2
+  wofi -S dmenu -c ~/.config/wofi/config-text -Q "$query") || exit 2
 
 username=$(echo "$selected" | cut -d '/' -f2)
 url=$(echo "$selected" | cut -d '/' -f1)
@@ -50,4 +50,4 @@ case "$field" in
 esac
 
 wl-copy "$value"
-notify-send "Copied $field:" "$value" -i edit-copy -t 4000
+notify-send "Copied $field" -i edit-copy -t 4000

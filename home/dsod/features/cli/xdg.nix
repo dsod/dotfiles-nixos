@@ -13,10 +13,11 @@
       defaultApplications =
         let
           browser = [ "google-chrome.desktop" ];
+          documents = ["zathura.desktop" ];
         in
         {
           "application/json" = browser;
-          "application/pdf" = browser;
+          "application/pdf" = documents;
 
           "text/html" = browser;
           "text/xml" = browser;

@@ -12,17 +12,15 @@
 
   home.packages = with pkgs; [
     grim
-    imv
-    mimeo
     primary-xwayland
     pulseaudio
     slurp
-    waypipe
     wf-recorder
     wl-clipboard
+    cliphist # Clipboard tool
+    hyprpicker # Color pciker
     wl-mirror
     wl-mirror-pick
-    ydotool
   ];
 
   home.sessionVariables = {

@@ -90,13 +90,16 @@ in
   exec-once=swayidle -w
   exec-once=wpaperd
   exec-once=hyprctl setcursor Catppuccin-Macchiato-Dark-Cursors 24
+  exec-once = cliphist wipe && wl-paste --type text --watch cliphist store #Stores only text data
+  exec-once = wl-paste --type image --watch cliphist store #Stores only image data
 
   windowrule=workspace 2 silent,google-chrome-stable
   windowrule=workspace 5 silent,slack
   windowrule=workspace 5 silent,spotify
 
   windowrule=float,blueman
-  windowrule=float,nm-connection-editor|pavucontrolk
+  windowrule=float,nm-connection-editor
+  windowrule=float,pavucontrol
   windowrule=float,thunar
 
   # Lid switches
@@ -112,11 +115,14 @@ in
   # Program bindings
   bind=SUPER,q,exec,${TERMINAL}
   bind=SUPER,w,killactive
-  bind=SUPER,v,exec,${TERMINAL} $SHELL -ic ${EDITOR}
+  bind=SUPER,e,exec,${TERMINAL} $SHELL -ic ${EDITOR}
   bind=SUPER,b,exec,${BROWSER}
 
-  bind=SUPER,space,exec,wofi -S drun --width 600 --height 400
+  bind=SUPER,space,exec,wofi -c ~/.config/wofi/config -S drun
   bind=SUPER,s,exec,pass-wofi
+  bind=SUPER,d,exec, bash -c "~/.scripts/bw-wofi.sh --listAll"
+  bind=SUPER, v, exec, cliphist list | wofi -c ~/.config/wofi/config-text --dmenu | cliphist decode | wl-copy
+  bind=SUPER, C, exec, hyprpicker -a
 
   bind = SUPER, c, exec, hyprpicker -a
   bind = SUPER, V, exec, cliphist list | wofi -c ~/.config/wofi/config-text | cliphist decode | wl-copy
