@@ -12,7 +12,6 @@
     ./ranger.nix
     ./screen.nix
     ./shellcolor.nix
-    ./ssh.nix
     ./starship.nix
     ./xdg.nix
   ];
@@ -29,6 +28,7 @@
     diffsitter # Better diff
     jq # JSON pretty printer and manipulator
     trekscii # Cute startrek cli printer
+    imv # Image viewer
 
     nil # Nix LSP
     nixfmt # Nix formatter

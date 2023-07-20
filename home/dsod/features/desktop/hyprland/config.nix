@@ -83,6 +83,7 @@ in
 }
 
   # Startup
+  exec-once = swaylock -S
   exec-once = blueman-applet
   exec-once = nm-applet --indicator
   exec-once=waybar
@@ -118,16 +119,15 @@ in
   bind=SUPER,e,exec,${TERMINAL} $SHELL -ic ${EDITOR}
   bind=SUPER,b,exec,${BROWSER}
 
-  bind=SUPER,space,exec,wofi -c ~/.config/wofi/config -S drun
-  bind=SUPER,s,exec,pass-wofi
-  bind=SUPER,d,exec, bash -c "~/.scripts/bw-wofi.sh --listAll"
-  bind=SUPER, v, exec, cliphist list | wofi -c ~/.config/wofi/config-text --dmenu | cliphist decode | wl-copy
-  bind=SUPER, C, exec, hyprpicker -a
-
-  bind = SUPER, c, exec, hyprpicker -a
-  bind = SUPER, V, exec, cliphist list | wofi -c ~/.config/wofi/config-text | cliphist decode | wl-copy
-  bind = SUPER, D, exec, tmuxp ls | wofi -c ~/.config/wofi/config-text | xargs -I \{\} foot tmuxp load \{\}
-  bind = SUPER, E, exec, thunar # Show the graphical file browser
+  bind=SUPER,space,exec,$HOME/.config/rofi/bin/launcher
+  bind=SUPER,a,exec,$HOME/.config/rofi/bin/aws --listEc2 qbnk-prod
+  bind=SUPERSHIFT,a,exec,$HOME/.config/rofi/bin/aws --listEc2 qbnk-staging
+  bind=SUPERCTRL,a,exec,$HOME/.config/rofi/bin/aws --listEc2 qbnk-dev
+  bind=SUPER,p,exec,$HOME/.config/rofi/bin/powermenu
+  bind=SUPER,s,exec,rofi-pass
+  bind=SUPER,D,exec,rofi-bw --listAll
+  bind=SUPER,v,exec,$HOME/.config/rofi/bin/clipboard
+  bind=SUPER,c,exec,hyprpicker -a
 
   # Reset waybar
   bind=SUPER,F1,exec, bash -c "~/.scripts/hypr_util --rwb"

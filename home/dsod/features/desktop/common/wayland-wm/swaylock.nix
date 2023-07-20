@@ -11,12 +11,12 @@ in
       fade-in = 0.1;
 
       font = config.fontProfiles.regular.family;
-      font-size = 15;
+      font-size = 18;
 
       line-uses-inside = true;
       disable-caps-lock-text = true;
       indicator-caps-lock = true;
-      indicator-radius = 40;
+      indicator-radius = 60;
       indicator-idle-visible = true;
       indicator-y-position = 1000;
 

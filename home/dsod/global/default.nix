@@ -9,7 +9,7 @@ in
     ../features/nvim
     ../features/helix
     ../features/productivity
-    ../features/music
+    ../features/multimedia
     ../features/pass
     ./wpaperd
   ] ++ (builtins.attrValues outputs.homeManagerModules);
@@ -44,7 +44,7 @@ in
   home = {
     username = lib.mkDefault "dsod";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
-    stateVersion = lib.mkDefault "22.05";
+    stateVersion = lib.mkDefault "23.05";
     sessionPath = [ "$HOME/.local/bin" ];
   };
   home.file.".scripts" = {

@@ -5,7 +5,7 @@
 , makeWrapper
 , pass
 , jq
-, wofi
+, rofi
 , libnotify
 , wl-clipboard
 , findutils
@@ -16,9 +16,9 @@
 with lib;
 
 stdenv.mkDerivation {
-  name = "pass-wofi";
+  name = "rofi-pass";
   version = "1.0";
-  src = ./pass-wofi.sh;
+  src = ./rofi-pass.sh;
 
   nativeBuildInputs = [ makeWrapper ];
 
@@ -27,13 +27,13 @@ stdenv.mkDerivation {
   dontConfigure = true;
 
   installPhase = ''
-    install -Dm 0755 $src $out/bin/pass-wofi
-    wrapProgram $out/bin/pass-wofi --set PATH \
+    install -Dm 0755 $src $out/bin/rofi-pass
+    wrapProgram $out/bin/rofi-pass --set PATH \
       "${
         makeBinPath [
           pass
           jq
-          wofi
+          rofi
           libnotify
           wl-clipboard
           findutils

@@ -6,7 +6,7 @@
     ./swayidle.nix
     ./swaylock.nix
     ./waybar.nix
-    ./wofi.nix
+    ./rofi
     ./zathura.nix
   ];
 
@@ -21,6 +21,7 @@
     hyprpicker # Color pciker
     wl-mirror
     wl-mirror-pick
+    wtype # Typing values from Rofi launcher
   ];
 
   home.sessionVariables = {

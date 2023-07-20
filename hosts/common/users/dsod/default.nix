@@ -29,6 +29,9 @@ in
 
   home-manager.users.dsod = import ../../../../home/dsod/${config.networking.hostName}.nix;
 
+  services.getty.autologinUser = "dsod";
   services.geoclue2.enable = true;
-  security.pam.services = { swaylock = { }; };
+  security.pam.services = {
+      swaylock = { };
+    };
 }

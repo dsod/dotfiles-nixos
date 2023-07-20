@@ -21,8 +21,13 @@ in
       name = config.fontProfiles.monospace.family;
       size = 12;
     };
+
+    shellIntegration = {
+      enableFishIntegration = true;
+    };
+
     settings = {
-      shell_integration = "no-rc"; # I prefer to do it manually
+      kitty_mod = "ctrl";
       scrollback_lines = 4000;
       scrollback_pager_history_size = 2048;
       window_padding_width = 15;
@@ -61,6 +66,12 @@ in
       color19 = "#${colors.base02}";
       color20 = "#${colors.base04}";
       color21 = "#${colors.base06}";
+    };
+    keybindings = {
+      "f1" = "launch --allow-remote-control kitty +kitten broadcast --match-tab state:focused";
+      "ctrl+c" = "copy_or_interrupt";
+      "ctrl+shift+l" = "next_layout";
+      "ctrl+alt+enter" = "launch --cwd=current";
     };
   };
 }

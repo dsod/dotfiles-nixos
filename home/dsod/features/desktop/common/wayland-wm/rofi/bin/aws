@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+
+profile=$2
+authstatus=$(aws sts get-caller-identity --profile $profile)
+
+init() {
+    if echo $authstatus | grep -q "UserId";then
+        return
+    fi
+    aws sso login --profile $profile
+}
+
+kpanes() {
+  local jumphost=$1
+  local targethosts=${@:2:$#}
+
+  local now=$(date +'%s')
+  local session_file="/tmp/kpanes-session.${now}"
+
+  # generate session
+  echo "layout grid" > $session_file
+  for host in $targethosts; do
+    echo "launch --title $host ssh -J $jumphost $USER@$host" >> $session_file
+  done
+  echo "launch --allow-remote-control kitty +kitten broadcast" >> $session_file
+  kitty --session $session_file
+  rm $session_file
+}
+
+showRofi() {
+    selected=$(echo "$1" \
+   | rofi -dmenu -theme $HOME/.config/rofi/config/dmenu.rasi -p "󰸏 EC2" -multi-select)
+
+   if [ -z "$selected" ];then
+       return
+    fi
+
+    firstLine=$(echo "$selected" | head -n 1)
+    IFS='-' read -r scope environment rest <<< $firstLine
+    jumphost="$scope-$environment-bastion"
+
+    ips=$(echo "$selected" | awk -F'\t' '{print $2}' | tr '\n' ' ')
+
+    kpanes $jumphost $ips
+}
+
+listEc2() {
+    instances=$(aws --profile $profile ec2 describe-instances \
+        --filters "Name=instance-state-name,Values=running" \
+        --query 'Reservations[*].Instances[*].{ip:PrivateIpAddress,Name:Tags[?Key==`Name`]|[0].Value}' \
+        --output text)
+
+    showRofi "$instances"
+}
+
+
+if [[ "$1" == "--listEc2" ]]; then
+    init
+    listEc2
+elif [[ "$1" == "--init" ]];then
+    init
+else
+    echo "Usage: $0 [--listAll|--search|--init|--get]"
+fi

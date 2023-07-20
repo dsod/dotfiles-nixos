@@ -7,12 +7,12 @@
     ./vscode.nix
     ./font.nix
     ./gtk.nix
-    ./kdeconnect.nix
     ./pavucontrol.nix
     ./playerctl.nix
     ./qt.nix
     ./slack.nix
     ./filezilla.nix
+    ./dbeaver.nix
     ../../cloud
   ];
 }

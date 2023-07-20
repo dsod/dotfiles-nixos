@@ -4,7 +4,6 @@ let
   hasPackage = pname: lib.any (p: p ? pname && p.pname == pname) config.home.packages;
   hasRipgrep = hasPackage "ripgrep";
   hasExa = hasPackage "exa";
-  hasBitwardenCli = hasPackage "bitwarden-cli";
   hasNeovim = config.programs.neovim.enable;
   hasEmacs = config.programs.emacs.enable;
   hasNeomutt = config.programs.neomutt.enable;
@@ -51,8 +50,6 @@ in
     shellAliases = {
       # Clear screen and scrollback
       clear = "printf '\\033[2J\\033[3J\\033[1;1H'";
-      bwp = mkIf hasBitwardenCli "BITWARDENCLI_APPDATA_DIR=~/.config/Bitwarden\ CLI\ Personal bw $@";
-      bww = mkIf hasBitwardenCli "BITWARDENCLI_APPDATA_DIR=~/.config/Bitwarden\ CLI\ Work bw $@";
     };
     functions = {
       # Disable greeting

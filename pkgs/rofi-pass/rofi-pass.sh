@@ -18,7 +18,7 @@ fi
 
 selected=$(find -L . -not -path '*\/.*' -path "*.gpg" -type f -printf '%P\n' | \
   sed 's/.gpg$//g' | \
-  wofi -S dmenu -c ~/.config/wofi/config-text -Q "$query") || exit 2
+  rofi -dmenu -theme $HOME/.config/rofi/config/dmenu.rasi -p "Passwords" -Q "$query") || exit 2
 
 username=$(echo "$selected" | cut -d '/' -f2)
 url=$(echo "$selected" | cut -d '/' -f1)
@@ -28,7 +28,7 @@ Username
 OTP
 URL"
 
-field=$(printf "$fields" | wofi -S dmenu) || field="Password"
+field=$(printf "$fields" | rofi -dmenu -theme $HOME/.config/rofi/config/dmenu.rasi -p "Passwords") || field="Password"
 
 case "$field" in
     "Password")

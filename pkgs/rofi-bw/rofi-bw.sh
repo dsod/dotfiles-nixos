@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 bws=$(bw status)
 
 login() {
@@ -39,21 +37,22 @@ init() {
     fi
 }
 
-showWofi() {
+showRofi() {
     value=$(echo "$1" \
-   | wofi -c ~/.config/wofi/config-text --dmenu --pre-display-cmd "echo '%s' | cut -d '^' -f 2" \
+   | rofi -dmenu -theme $HOME/.config/rofi/config/dmenu.rasi -p "Bitwarden" -display-columns 2 -display-column-separator '\^' \
    | awk -F'^' '{print $1}' \
    | xargs -I{} bw get password {} \
    | head -n 1)
-    wl-paste "$value"
+    wl-copy "$value"
+
 }
 
 listAll() {
-   showWofi "$(bw list items --pretty | jq -r '.[] | .id + "^" + .name + " - " + .login.username')"
+   showRofi "$(bw list items --pretty | jq -r '.[] | .id + "^" + .name + " - " + .login.username')"
 }
 
 search() {
-    showWofi "$(bw list items --pretty --search $1 | jq -r '.[] | .id + "^" + .name + " - " + .login.username')"
+    showRofi "$(bw list items --pretty --search $1 | jq -r '.[] | .id + "^" + .name + " - " + .login.username')"
 }
 
 get () {

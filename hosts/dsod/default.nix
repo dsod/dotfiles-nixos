@@ -9,16 +9,12 @@
     ../common/global
     ../common/users/dsod
 
-    ../common/optional/greetd.nix
     ../common/optional/pipewire.nix
     ../common/optional/quietboot.nix
     ../common/optional/wireless.nix
     ../common/optional/bluetooth.nix
     ../common/optional/thunar.nix
   ];
-
-  # TODO: theme "greeter" user GTK instead of using dsod to login
-  services.greetd.settings.default_session.user = "dsod";
 
   networking = {
     hostName = "dsod";

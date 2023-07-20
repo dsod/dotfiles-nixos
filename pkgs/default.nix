@@ -10,7 +10,8 @@
 
   # Personal scripts
   minicava = pkgs.callPackage ./minicava { };
-  pass-wofi = pkgs.callPackage ./pass-wofi { };
+  rofi-pass = pkgs.callPackage ./rofi-pass { };
+  rofi-bw = pkgs.callPackage ./rofi-bw { };
   primary-xwayland = pkgs.callPackage ./primary-xwayland { };
   wl-mirror-pick = pkgs.callPackage ./wl-mirror-pick { };
   lyrics = pkgs.callPackage ./lyrics { };

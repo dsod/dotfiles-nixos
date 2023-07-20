@@ -1,0 +1,21 @@
+configuration{
+    modi: "emoji";
+    show-icons: true;
+    terminal: "kitty";
+    emoji-format "{emoji}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    sidebar-mode: true;
+}
+
+@theme "catppuccin-macchiato"
+
+element {
+    children: [ element-icon ];
+}
+
+listview {
+    columns: 6;
+    lines: 8;
+}
