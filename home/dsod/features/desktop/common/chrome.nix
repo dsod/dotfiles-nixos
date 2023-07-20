@@ -3,7 +3,6 @@
   programs.google-chrome = {
     enable = true;
      commandLineArgs = [
-        "--gtk-version=4"
       ];
   };
 

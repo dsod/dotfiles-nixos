@@ -27,8 +27,6 @@
     inputs.hyprwm-contrib.packages.${system}.grimblast
     swayidle
     dconf
-    # TODO
-    inputs.hyprland.packages.${system}.xdg-desktop-portal-hyprland
   ];
 
   programs.waybar.package = pkgs.waybar.overrideAttrs (oa: {

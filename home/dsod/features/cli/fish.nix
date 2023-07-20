@@ -10,6 +10,8 @@ let
   hasShellColor = config.programs.shellcolor.enable;
   hasKitty = config.programs.kitty.enable;
   shellcolor = "${pkgs.shellcolord}/bin/shellcolor";
+  portalSpawner="~/dev/qbnk/mediaportal-docker-environment";
+  qbank="~/dev/qbnk/docker-compose-qbank3";
 in
 {
   programs.fish = {
@@ -50,6 +52,23 @@ in
     shellAliases = {
       # Clear screen and scrollback
       clear = "printf '\\033[2J\\033[3J\\033[1;1H'";
+
+      # Docker compose aliases
+      dcu = "docker compose up -d";
+      dcd = "docker compose down";
+
+      # Portal spawner aliases
+      psdcu = "docker compose -f ${portalSpawner}/docker-compose.yml up -d";
+      psdcd = "docker compose -f ${portalSpawner}/docker-compose.yml down";
+
+      # QBank aliases
+      qbdcu = "docker compose -f ${qbank}/docker-compose.yml up -d";
+      qbdcd = "docker compose -f ${qbank}/docker-compose.yml down";
+      qbpsalm = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c '/qbank3/vendor/bin/psalm.phar --root = /qbank3/ --no-cache'";
+      qbda = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c 'cd /qbank3 && composer dumpautoload'";
+      qbci = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c 'cd /qbank3 && composer install'";
+      qbmig = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c 'php /qbank3/app/console qbank:dbrevision -e development -c qbank-dev.localhost'";
+      qbmiginit = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c 'php /qbank3/app/console.php qbank:setup -e development -c qbank-dev.localhost'";
     };
     functions = {
       # Disable greeting
