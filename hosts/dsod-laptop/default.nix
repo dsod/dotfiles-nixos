@@ -28,7 +28,7 @@
     hostName = "dsod-laptop";
     extraHosts = ''
       127.0.0.1 localhost qbank3-dev qbank3-dev.localhost minio mediaportals.localhost
-      ::1 localhostqbank3-dev qbank3-dev.localhost minio mediaportals.localhost
+      ::1 localhost qbank3-dev qbank3-dev.localhost minio mediaportals.localhost
     '';
   };
 
@@ -45,7 +45,10 @@
 
   xdg.portal = {
     enable = true;
-    wlr.enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
+    ];
   };
 
   hardware = {
