@@ -3,7 +3,7 @@ bws=$(bw status)
 login() {
     if ! echo $bws | grep -q "unauthenticated";then
         return
-    elif ! pass ls qbank/wb | grep -q clientid || ! pass ls qbank/wb | grep -q clientsecret; then
+    elif ! pass ls qbank/bw | grep -q clientid || ! pass ls qbank/bw | grep -q clientsecret; then
         echo "ERROR - The Bitwarden clientid and/or clientsecret are not set" >&2
         notify-send "BitWarden Client ID or Client Secret is not set in pass. Exiting." -i edit-copy -t 4000
         exit 2
