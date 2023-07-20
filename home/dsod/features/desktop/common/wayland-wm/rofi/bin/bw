@@ -41,7 +41,7 @@ init() {
 
 showRofi() {
     value=$(echo "$1" \
-   | rofi -dmenu -theme $HOME/.config/rofi/config/dmenu.rasi -p "Bitwarden" -display-columns 2 -display-column-separator '\^' \
+   | rofi -x11 -dmenu -theme $HOME/.config/rofi/config/dmenu.rasi -p "Bitwarden" -display-columns 2 -display-column-separator '\^' \
    | awk -F'^' '{print $1}' \
    | xargs -I{} bw get password {} \
    | head -n 1)

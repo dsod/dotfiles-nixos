@@ -1,14 +1,17 @@
 { lib
 , pkgs
 , stdenv
-, fetchFromGitHub
 , makeWrapper
 , pass
-, jq
 , bitwarden-cli
+, jq
 , libnotify
 , wl-clipboard
 , coreutils
+, findutils
+, gnugrep
+, rofi
+, gawk
 }:
 
 with lib;
@@ -29,12 +32,16 @@ stdenv.mkDerivation {
     wrapProgram $out/bin/rofi-bw --set PATH \
       "${
         makeBinPath [
-          pass
           jq
+          pass
           bitwarden-cli
+          rofi
+          findutils
           libnotify
           wl-clipboard
           coreutils
+          gnugrep
+          gawk
         ]
       }"
   '';

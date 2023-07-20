@@ -29,7 +29,7 @@ kpanes() {
 
 showRofi() {
     selected=$(echo "$1" \
-   | rofi -dmenu -theme $HOME/.config/rofi/config/dmenu.rasi -p "󰸏 EC2" -multi-select)
+   | rofi -x11 -dmenu -theme $HOME/.config/rofi/config/dmenu.rasi -p "󰸏 EC2" -multi-select)
 
    if [ -z "$selected" ];then
        return

@@ -14,6 +14,7 @@
     ../common/optional/wireless.nix
     ../common/optional/bluetooth.nix
     ../common/optional/thunar.nix
+    ../common/optional/docker.nix
   ];
 
   networking = {
@@ -39,6 +40,7 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
+    xdgOpenUsePortal = true;
   };
 
   hardware = {

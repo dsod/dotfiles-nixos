@@ -3,7 +3,7 @@
     pass = config.programs.password-store.package;
     passEnabled = config.programs.password-store.enable;
     rofi-pass = pkgs.rofi-pass.override { inherit pass; };
-    rofi-bw = pkgs.rofi-bw.override;
+    rofi-bw = pkgs.rofi-bw.override {};
   in
 {
   home.packages = with pkgs; [

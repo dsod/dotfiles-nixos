@@ -119,14 +119,14 @@ in
   bind=SUPER,e,exec,${TERMINAL} $SHELL -ic ${EDITOR}
   bind=SUPER,b,exec,${BROWSER}
 
-  bind=SUPER,space,exec,$HOME/.config/rofi/bin/launcher
+  bind=SUPER,space,exec,sh $HOME/.config/rofi/bin/launcher
   bind=SUPER,a,exec,$HOME/.config/rofi/bin/aws --listEc2 qbnk-prod
-  bind=SUPERSHIFT,a,exec,$HOME/.config/rofi/bin/aws --listEc2 qbnk-staging
-  bind=SUPERCTRL,a,exec,$HOME/.config/rofi/bin/aws --listEc2 qbnk-dev
-  bind=SUPER,p,exec,$HOME/.config/rofi/bin/powermenu
+  bind=SUPERSHIFT,a,exec, sh $HOME/.config/rofi/bin/aws --listEc2 qbnk-staging
+  bind=SUPERCTRL,a,exec, sh $HOME/.config/rofi/bin/aws --listEc2 qbnk-dev
+  bind=SUPER,p,exec, sh $HOME/.config/rofi/bin/powermenu
   bind=SUPER,s,exec,rofi-pass
   bind=SUPER,D,exec,rofi-bw --listAll
-  bind=SUPER,v,exec,$HOME/.config/rofi/bin/clipboard
+  bind=SUPER,v,exec, cliphist list | rofi -x11 -theme $HOME/.config/rofi/config/dmenu -dmenu -p "Search..." | cliphist decode | wl-copy
   bind=SUPER,c,exec,hyprpicker -a
 
   # Reset waybar

@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-cliphist list | rofi -theme $HOME/.config/rofi/config/dmenu -dmenu -p "Search..." | cliphist decode | wl-copy
