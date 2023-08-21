@@ -9,7 +9,7 @@
     ./gpg.nix
     ./nix-index.nix
     ./pfetch.nix
-    ./ranger.nix
+    ./nnn.nix
     ./screen.nix
     ./shellcolor.nix
     ./starship.nix
@@ -28,11 +28,10 @@
     diffsitter # Better diff
     jq # JSON pretty printer and manipulator
     trekscii # Cute startrek cli printer
-    imv # Image viewer
-
     nil # Nix LSP
     nixfmt # Nix formatter
 
     ltex-ls # Spell checking LSP
   ];
+  home.file.".local/bin/nnn-hx".source = ./bin/nnn-hx.sh;
 }

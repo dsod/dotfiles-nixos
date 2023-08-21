@@ -13,7 +13,7 @@
       defaultApplications =
         let
           browser = [ "google-chrome.desktop" ];
-          documents = ["zathura.desktop" ];
+          documents = ["org.pwmt.zathura.desktop" ];
         in
         {
           "application/json" = browser;
@@ -43,7 +43,17 @@
 
           "audio/*" = [ "mpv.desktop" ];
           "video/*" = [ "mpv.dekstop" ];
-          "image/*" = [ "imv.desktop" ];
+          "image/jpg" = [ "nnn.desktop" ];
+          "image/jpeg" = [ "nnn.desktop" ];
+          "image/png" = [ "nnn.desktop" ];
+          "image/tiff" = [ "nnn.desktop" ];
+          "image/webp" = [ "nnn.desktop" ];
+          "image/avif" = [ "nnn.desktop" ];
+          "image/gif" = [ "nnn.desktop" ];
+          "image/x-tiff" = [ "nnn.desktop" ];
+          "image/svg" = [ "nnn.desktop" ];
+          "image/svg+xml" = [ "nnn.desktop" ];
+
         };
     };
 

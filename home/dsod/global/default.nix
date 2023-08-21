@@ -6,7 +6,6 @@ in
   imports = [
     inputs.nix-colors.homeManagerModule
     ../features/cli
-    ../features/nvim
     ../features/helix
     ../features/productivity
     ../features/multimedia
@@ -54,4 +53,5 @@ in
 
   colorscheme = lib.mkDefault colorSchemes.dracula;
   home.file.".colorscheme".text = config.colorscheme.slug;
+
 }

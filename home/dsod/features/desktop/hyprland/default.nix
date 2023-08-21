@@ -36,7 +36,6 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.default;
-    nvidiaPatches = true;
     extraConfig =
       (import ./monitors.nix {
         inherit lib;

@@ -22,9 +22,9 @@ in
   # After 10 seconds of locked, mute mic
   (mkEvent 10 "${pactl} set-source-mute @DEFAULT_SOURCE@ yes" "${pactl} set-source-mute @DEFAULT_SOURCE@ no") +
   # Hyprland - Turn off screen (DPMS)
-  lib.optionalString config.wayland.windowManager.hyprland.enable
-    (let hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
-    in mkEvent 40 "${hyprctl} dispatch dpms off" "${hyprctl} dispatch dpms on") +
+  # lib.optionalString config.wayland.windowManager.hyprland.enable
+    # (let hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
+    # in mkEvent 40 "${hyprctl} dispatch dpms off" "${hyprctl} dispatch dpms on") +
   # Sway - Turn off screen (DPMS)
   lib.optionalString config.wayland.windowManager.sway.enable
     (let swaymsg = "${config.wayland.windowManager.sway.package}/bin/swaymsg";

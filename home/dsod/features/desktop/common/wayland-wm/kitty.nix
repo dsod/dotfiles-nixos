@@ -27,7 +27,8 @@ in
     };
 
     settings = {
-      kitty_mod = "ctrl";
+      allow_remote_control = true;
+      listen_on = "${config.xdg.cacheHome}/kitty_remote";
       scrollback_lines = 4000;
       scrollback_pager_history_size = 2048;
       window_padding_width = 15;
@@ -72,6 +73,7 @@ in
       "ctrl+c" = "copy_or_interrupt";
       "ctrl+shift+l" = "next_layout";
       "ctrl+alt+enter" = "launch --cwd=current";
+      "ctrl+e" = "launch --cwd=current --type=overlay-main nnn-hx";
     };
   };
 }

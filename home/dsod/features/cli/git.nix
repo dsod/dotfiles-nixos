@@ -1,6 +1,6 @@
 { pkgs, lib, config, ... }:
 {
-  home.packages = [];
+  home.packages = with pkgs; [lazygit];
   programs.git = {
     enable = true;
     package = pkgs.gitAndTools.gitFull;

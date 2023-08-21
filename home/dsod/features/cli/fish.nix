@@ -69,6 +69,7 @@ in
       qbci = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c 'cd /qbank3 && composer install'";
       qbmig = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c 'php /qbank3/app/console qbank:dbrevision -e development -c qbank-dev.localhost'";
       qbmiginit = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c 'php /qbank3/app/console.php qbank:setup -e development -c qbank-dev.localhost'";
+      nnn = "nnn -P p";
     };
     functions = {
       # Disable greeting

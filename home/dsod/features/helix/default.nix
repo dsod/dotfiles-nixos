@@ -1,10 +1,18 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 let
   inherit (config) colorscheme;
 in
 {
-  home.sessionVariables.COLORTERM = "truecolor";
-  programs.helix = {
+    home.sessionVariables = { 
+      COLORTERM = "truecolor"; 
+      EDITOR = "hx";
+    };
+    
+    home.packages = with pkgs; [
+      nodePackages.intelephense
+      nodePackages.typescript-language-server
+    ];
+    programs.helix = {
     enable = true;
     settings = {
       theme = colorscheme.slug;
@@ -17,8 +25,20 @@ in
           insert = "bar";
           select = "underline";
         };
+        bufferline = "always";
       };
     };
     themes = import ./theme.nix { inherit colorscheme; };
+    languages = {
+      language = [
+        {
+          name = "php";
+          file-types = ["php" "inc" "tpl"];
+          config = {
+            licenceKey = "00HAMU0OFBGZNXO";
+          };
+        }
+      ];
+    };
   };
 }

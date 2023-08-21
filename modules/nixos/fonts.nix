@@ -1,6 +1,6 @@
-{pkgs, ...}: {
+{...}: {
   fonts = {
-      enableDefaultFonts = true;
+      enableDefaultPackages = true;
       fontconfig.defaultFonts = {
         monospace = [ "UbuntuMono Nerd Font" ];
         sansSerif = [ "Ubuntu Nerd Font" ];

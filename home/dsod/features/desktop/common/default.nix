@@ -13,6 +13,7 @@
     ./slack.nix
     ./filezilla.nix
     ./dbeaver.nix
+    ./rclone.nix
     ../../cloud
   ];
 }

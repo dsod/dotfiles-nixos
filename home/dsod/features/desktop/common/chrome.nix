@@ -6,6 +6,9 @@
       ];
   };
 
-  home.sessionVariables.BROWSER = "google-chrome-stable";
+  home.sessionVariables = {
+    BROWSER = "google-chrome-stable";
+    DEFAULT_BROWSER = "google-chrome-stable";
+  };
 
 }
