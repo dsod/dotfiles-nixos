@@ -75,8 +75,8 @@ in
     repeat_delay = 300
     repeat_rate = 80
     touchpad {
-      natural_scroll = yes
-      scroll_factor = 0.6
+      natural_scroll = no
+      scroll_factor = 0.5
       disable_while_typing=false
     }
   }

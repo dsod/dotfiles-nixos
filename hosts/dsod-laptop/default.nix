@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, config, ... }: {
   imports = [
     inputs.hardware.nixosModules.common-cpu-intel
     inputs.hardware.nixosModules.common-gpu-nvidia
@@ -42,6 +42,9 @@
   programs = {
     dconf.enable = true;
   };
+
+  # Printer
+  services.printing.enable = true;
 
   xdg.portal = {
     enable = true;
