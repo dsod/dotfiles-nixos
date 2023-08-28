@@ -2,7 +2,7 @@
   imports = [
     ./global
     ./features/desktop/hyprland
-    ./features/development/postman.nix
+    ./features/development
   ];
 
   colorscheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;

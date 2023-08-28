@@ -27,6 +27,7 @@
     inputs.hyprwm-contrib.packages.${system}.grimblast
     swayidle
     dconf
+    openssl # Might be required by certain applications like Postman
   ];
 
   programs.waybar.package = pkgs.waybar.overrideAttrs (oa: {

@@ -5,7 +5,6 @@ in
 {
     home.sessionVariables = { 
       COLORTERM = "truecolor"; 
-      EDITOR = "hx";
     };
     
     home.packages = with pkgs; [
