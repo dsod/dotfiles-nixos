@@ -26,11 +26,12 @@ let
       withNerdIcons = true;
     };
     bookmarks = {
-      d = "~/documents";
-      D = "~/downloads";
-      p = "~/pictures";
-      v = "~/videos";
-      c = "~/cloud";
+      # Messing up regular hotkeys
+      # d = "~/documents";
+      # D = "~/downloads";
+      # p = "~/pictures";
+      # v = "~/videos";
+      # c = "~/cloud";
     };
     plugins = {
       src = (pkgs.fetchFromGitHub {

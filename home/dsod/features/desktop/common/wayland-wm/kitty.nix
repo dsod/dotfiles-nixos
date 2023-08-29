@@ -73,7 +73,10 @@ in
       "ctrl+c" = "copy_or_interrupt";
       "ctrl+shift+l" = "next_layout";
       "ctrl+alt+enter" = "launch --cwd=current";
-      "ctrl+e" = "launch --cwd=current --type=overlay-main nnn-hx";
+      "ctrl+e" = "launch --cwd=current nnn-hx";
     };
   };
+  xdg.configFile."kitty/ssh.conf".text = ''
+    env TERM=xterm-256color
+  '';
 }

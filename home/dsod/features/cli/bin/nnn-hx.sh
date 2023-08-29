@@ -5,7 +5,7 @@ hx_bin=$(which hx)
 nnn_window_id=$KITTY_WINDOW_ID
 hx_window_id=$(kitty @ ls | jq -r ".[] | select(.tabs[].windows[].id == $KITTY_WINDOW_ID) | .tabs[].windows[] | select(.foreground_processes[].cmdline[] == \"$hx_bin\").id")
 
-paths=$(nnn -P p -p -)
+paths=$(nnn -p -)
 [[ -z $paths ]] && exit 1
 
 if [ -z "$hx_window_id" ]; then
