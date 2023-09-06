@@ -15,6 +15,7 @@
     ../common/optional/bluetooth.nix
     ../common/optional/thunar.nix
     ../common/optional/docker.nix
+    ../common/optional/steam.nix
   ];
 
   networking = {
@@ -52,6 +53,8 @@
     };
     opentabletdriver.enable = true;
   };
+
+  security.polkit.enable = true;
 
   system.stateVersion = "23.05";
 }

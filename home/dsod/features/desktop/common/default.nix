@@ -13,7 +13,6 @@
     ./filezilla.nix
     ./dbeaver.nix
     ./rclone.nix
-    ./gparted.nix
     ../../cloud
   ];
 }
