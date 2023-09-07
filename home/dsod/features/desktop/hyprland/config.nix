@@ -4,6 +4,7 @@ let
 in
 ''
   monitor=,preferred,auto,auto
+  monitor=desc:Samsung Electric Company C27HG7x HTHK900737, 2560x1440@144, auto, auto
   monitor=desc:Samsung Electric Company C34H89x HTOM900062, 3440x1440@100, auto, auto
 
   general {
@@ -64,6 +65,7 @@ in
 
   misc {
     vfr=on
+    vrr=2
   }
 
   input {

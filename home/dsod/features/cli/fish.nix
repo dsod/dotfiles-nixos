@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, qbankPath, ... }:
 let
   inherit (lib) mkIf;
   hasPackage = pname: lib.any (p: p ? pname && p.pname == pname) config.home.packages;
@@ -10,8 +10,8 @@ let
   hasShellColor = config.programs.shellcolor.enable;
   hasKitty = config.programs.kitty.enable;
   shellcolor = "${pkgs.shellcolord}/bin/shellcolor";
-  portalSpawner="~/dev/qbnk/mediaportal-docker-environment";
-  qbank="~/dev/qbnk/docker-compose-qbank3";
+  portalSpawner="${qbankPath}/mediaportal-docker-environment";
+  qbank="${qbankPath}/docker-compose-qbank3";
 in
 {
   programs.fish = {
@@ -69,6 +69,7 @@ in
       qbci = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c 'cd /qbank3 && composer install'";
       qbmig = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c 'php /qbank3/app/console qbank:dbrevision -e development -c qbank-dev.localhost'";
       qbmiginit = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c 'php /qbank3/app/console.php qbank:setup -e development -c qbank-dev.localhost'";
+      qbtranslate = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c 'php /qbank3/app/console.php gettext:compile'";
       nnn = "nnn -P p";
     };
     functions = {

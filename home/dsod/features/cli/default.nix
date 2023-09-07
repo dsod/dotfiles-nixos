@@ -1,9 +1,9 @@
-{ pkgs, ... }: {
+{ pkgs, lib, config, qbankPath, ... }: {
   imports = [
     ./bash.nix
     ./bat.nix
     ./direnv.nix
-    ./fish.nix
+    (import ./fish.nix { inherit pkgs qbankPath lib config; })
     ./gh.nix
     ./git.nix
     ./gpg.nix

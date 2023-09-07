@@ -1,11 +1,11 @@
-{ inputs, lib, pkgs, config, outputs, ... }:
+{ inputs, lib, pkgs, config, outputs, qbankPath, ... }:
 let
   inherit (inputs.nix-colors) colorSchemes;
 in
 {
   imports = [
     inputs.nix-colors.homeManagerModule
-    ../features/cli
+    (import ../features/cli { inherit pkgs qbankPath lib config; })
     ../features/helix
     ../features/productivity
     ../features/multimedia

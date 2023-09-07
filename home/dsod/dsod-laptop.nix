@@ -1,6 +1,11 @@
 { inputs, ... }: {
   imports = [
-    ./global
+    (import ./global (
+        {
+          inherit inputs outputs lib pkgs config;
+          qbankPath = "${config.home.homeDirectory}/dev";
+        }
+    ))
     ./features/desktop/hyprland
     ./features/development
   ];
