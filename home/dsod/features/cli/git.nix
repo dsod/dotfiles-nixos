@@ -15,6 +15,7 @@
       feature.manyFiles = true;
       init.defaultBranch = "main";
       pull.rebase = true;
+      push.autoSetupRemote = true;
     };
     lfs.enable = true;
     ignores = [ ".direnv" "result" ];
