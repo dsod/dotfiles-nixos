@@ -6,6 +6,7 @@ in
   monitor=,preferred,auto,auto
   monitor=desc:Samsung Electric Company C27HG7x HTHK900737, 2560x1440@144, auto, auto
   monitor=desc:Samsung Electric Company C34H89x HTOM900062, 3440x1440@100, auto, auto
+  monitor=desc:Samsung Electric Company SyncMaster H1AK500000,preferred,auto,auto,mirror,eDP-1
 
   general {
     sensitivity=0.5
@@ -110,8 +111,8 @@ in
   windowrule=float,thunar
 
   # Lid switches
-  bindl =,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
-  bindl =,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, preferred,auto,auto"
+  # bindl =,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
+  # bindl =,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, preferred,auto,auto"
 
   $hyprutils = ~/scripts/hypr_util
 
