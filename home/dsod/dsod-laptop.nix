@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{ inputs, config, outputs, lib, pkgs, ... }: {
   imports = [
     (import ./global (
         {

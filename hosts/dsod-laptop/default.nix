@@ -29,6 +29,7 @@
     extraHosts = ''
       127.0.0.1 localhost qbank3-dev qbank3-dev.localhost minio mediaportals.localhost
       ::1 localhost qbank3-dev qbank3-dev.localhost minio mediaportals.localhost
+      13.50.70.170 dam.camfil.com camfil-us-mediaportal.qbank.se
     '';
   };
 
