@@ -23,6 +23,12 @@
       127.0.0.1   qbank3-dev qbank3-dev.localhost minio mediaportals.localhost
       ::1   qbank3-dev qbank3-dev.localhost minio mediaportals.localhost
     '';
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [
+        9003 # XDebug
+      ];
+    };
   };
 
   boot = {
@@ -46,12 +52,14 @@
   hardware = {
     opengl = {
       enable = true;
-      extraPackages = with pkgs; [ amdvlk ];
+      extraPackages = with pkgs; [ mesa ];
       driSupport = true;
       driSupport32Bit = true;
     };
     opentabletdriver.enable = true;
   };
+
+  environment.variables.AMD_VULKAN_ICD = "RADV";
 
   security.polkit.enable = true;
 

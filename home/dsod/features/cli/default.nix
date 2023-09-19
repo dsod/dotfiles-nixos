@@ -22,7 +22,7 @@
     bc # Calculator
     bottom # System viewer
     ncdu # TUI disk usage
-    exa # Better ls
+    eza # Better ls
     ripgrep # Better grep
     fd # Better find
     diffsitter # Better diff
@@ -32,6 +32,8 @@
     nixfmt # Nix formatter
 
     ltex-ls # Spell checking LSP
+
+    dig
   ];
   home.file.".local/bin/nnn-hx".source = ./bin/nnn-hx.sh;
 }

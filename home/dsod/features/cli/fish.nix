@@ -3,7 +3,6 @@ let
   inherit (lib) mkIf;
   hasPackage = pname: lib.any (p: p ? pname && p.pname == pname) config.home.packages;
   hasRipgrep = hasPackage "ripgrep";
-  hasExa = hasPackage "exa";
   hasNeovim = config.programs.neovim.enable;
   hasEmacs = config.programs.emacs.enable;
   hasNeomutt = config.programs.neomutt.enable;
@@ -34,8 +33,6 @@ in
       hm = "home-manager --flake ~/dotfiles";
       hms = "home-manager --flake ~/dotfiles switch";
 
-      ls = mkIf hasExa "exa";
-
       e = mkIf hasEmacs "emacsclient -t";
 
       vrg = mkIf (hasNeomutt && hasRipgrep) "nvimrg";
@@ -64,10 +61,10 @@ in
       # QBank aliases
       qbdcu = "docker compose -f ${qbank}/docker-compose.yml up -d";
       qbdcd = "docker compose -f ${qbank}/docker-compose.yml down";
-      qbpsalm = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c '/qbank3/vendor/bin/psalm.phar --root = /qbank3/ --no-cache'";
+      qbpsalm = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c '/qbank3/vendor/bin/psalm.phar --root=/qbank3/ --no-cache'";
       qbda = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c 'cd /qbank3 && composer dumpautoload'";
       qbci = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c 'cd /qbank3 && composer install'";
-      qbmig = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c 'php /qbank3/app/console qbank:dbrevision -e development -c qbank-dev.localhost'";
+      qbmig = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c 'php /qbank3/app/console.php qbank:dbrevision -e development -c qbank-dev.localhost'";
       qbmiginit = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c 'php /qbank3/app/console.php qbank:setup -e development -c qbank-dev.localhost'";
       qbtranslate = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c 'php /qbank3/app/console.php gettext:compile'";
       nnn = "nnn -P p";

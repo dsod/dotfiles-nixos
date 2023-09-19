@@ -64,8 +64,9 @@ in
   }
 
   misc {
-    vfr=on
-    vrr=2
+    vfr=off
+    vrr=0
+    no_direct_scanout=false
   }
 
   input {

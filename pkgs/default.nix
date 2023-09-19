@@ -15,6 +15,7 @@
   primary-xwayland = pkgs.callPackage ./primary-xwayland { };
   wl-mirror-pick = pkgs.callPackage ./wl-mirror-pick { };
   lyrics = pkgs.callPackage ./lyrics { };
+  proton-ge-custom = pkgs.callPackage ./proton-ge-custom { };
 
   # My slightly customized plymouth theme, just makes the blue outline white
   plymouth-spinner-monochrome = pkgs.callPackage ./plymouth-spinner-monochrome { };
