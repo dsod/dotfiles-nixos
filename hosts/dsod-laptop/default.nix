@@ -27,10 +27,12 @@
   networking = {
     hostName = "dsod-laptop";
     extraHosts = ''
-      127.0.0.1 localhost qbank3-dev qbank3-dev.localhost minio mediaportals.localhost
-      ::1 localhost qbank3-dev qbank3-dev.localhost minio mediaportals.localhost
-      13.50.70.170 dam.camfil.com camfil-us-mediaportal.qbank.se
+      127.0.0.1 localhost minio qbank-dev.localhost
+      ::1 localhost minio qbank-dev.localhost
     '';
+    firewall.allowedTCPPorts = [
+      9003 # XDebug
+     ];
   };
 
   boot.kernelModules = [ "coretemp" ];

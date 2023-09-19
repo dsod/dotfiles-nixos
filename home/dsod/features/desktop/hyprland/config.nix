@@ -78,8 +78,8 @@ in
     accel_profile=flat
     repeat_delay = 300
     repeat_rate = 80
+    natural_scroll = no
     touchpad {
-      natural_scroll = no
       scroll_factor = 0.5
       disable_while_typing=false
     }
@@ -90,14 +90,13 @@ in
 }
 
   # Startup
-  exec-once = swaylock -S
   exec-once = blueman-applet
   exec-once = nm-applet --indicator
   exec-once=waybar
-  exec-once=mako
-  exec-once=swayidle -w
-  exec-once=wpaperd
-  exec-once=hyprctl setcursor Catppuccin-Macchiato-Dark-Cursors 24
+  exec-once = mako
+  exec-once = swayidle -w
+  exec-once = wpaperd
+  exec-once = hyprctl setcursor Catppuccin-Macchiato-Dark-Cursors 24
   exec-once = cliphist wipe && wl-paste --type text --watch cliphist store #Stores only text data
   exec-once = wl-paste --type image --watch cliphist store #Stores only image data
 
@@ -111,8 +110,8 @@ in
   windowrule=float,thunar
 
   # Lid switches
-  # bindl =,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
-  # bindl =,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, preferred,auto,auto"
+  bindl =,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
+  bindl =,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, preferred,auto,auto"
 
   $hyprutils = ~/scripts/hypr_util
 
@@ -234,4 +233,6 @@ in
   bind=SUPERSHIFT,0,movetoworkspacesilent,10
 
   blurls=waybar
+
+  exec=gnome-keyring-daemon -sd
 ''

@@ -14,5 +14,6 @@
     ./dbeaver.nix
     ./rclone.nix
     ../../cloud
+    ./imageviewer.nix
   ];
 }

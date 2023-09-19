@@ -3,6 +3,7 @@ let
   inherit (lib) mkIf;
   hasPackage = pname: lib.any (p: p ? pname && p.pname == pname) config.home.packages;
   hasRipgrep = hasPackage "ripgrep";
+  hasEza = hasPackage "eza";
   hasNeovim = config.programs.neovim.enable;
   hasEmacs = config.programs.emacs.enable;
   hasNeomutt = config.programs.neomutt.enable;
@@ -32,6 +33,8 @@ in
       snrs = "sudo nixos-rebuild --flake ~/dotfiles switch";
       hm = "home-manager --flake ~/dotfiles";
       hms = "home-manager --flake ~/dotfiles switch";
+
+      ls = mkIf hasEza "eza";
 
       e = mkIf hasEmacs "emacsclient -t";
 
