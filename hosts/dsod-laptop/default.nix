@@ -1,7 +1,7 @@
 { pkgs, inputs, config, ... }: {
   imports = [
-    inputs.hardware.nixosModules.common-cpu-intel
-    inputs.hardware.nixosModules.common-gpu-nvidia
+   inputs.hardware.nixosModules.common-cpu-intel
+   #inputs.hardware.nixosModules.common-gpu-nvidia
     inputs.hardware.nixosModules.common-pc-ssd
 
     ./hardware-configuration.nix
@@ -17,10 +17,11 @@
     ../common/optional/docker.nix
   ];
 
-  boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_zen;
-    binfmt.emulatedSystems = [ "aarch64-linux" "i686-linux" ];
-  };
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+  boot.kernelModules = [  "coretemp" ];
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" "i686-linux" ];
+  #boot.blacklistedKernelModules = [ "i915" ];
+  #boot.kernelParams = [ "nvidia_drm.modeset=1" "ibt=off" ];
 
   programs.light.enable = true;
 
@@ -35,9 +36,7 @@
      ];
   };
 
-  boot.kernelModules = [ "coretemp" ];
   services.thermald.enable = true;
-  # services.xserver.videoDrivers = ["nvidia"]; Doesn't work yet :(
   environment.etc."sysconfig/lm_sensors".text = ''
     HWMON_MODULES="coretemp"
   '';
@@ -56,17 +55,27 @@
     ];
   };
 
-  hardware = {
-    nvidia = {
-      prime.offload.enable = false;
-      modesetting.enable = true;
-    };
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-    };
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
   };
+
+# hardware.nvidia = {
+#   modesetting.enable = true;
+#   powerManagement.enable = false;
+#  powerManagement.finegrained = false;
+#    open = false;
+#    nvidiaSettings = true;
+#    prime = {
+#     offload.enable = false;
+#	    sync.enable = false;
+ #     # intelBusId = "PCI:0:2:0";
+#		  # nvidiaBusId = "PCI:1:0:0";
+ #  };
+  #};
+
+ # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
 
   system.stateVersion = "23.05";
 }

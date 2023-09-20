@@ -68,6 +68,8 @@ in
     vfr=off
     vrr=0
     no_direct_scanout=false
+    key_press_enables_dpms=true
+    mouse_move_enables_dpms=true
   }
 
   input {
@@ -110,8 +112,8 @@ in
   windowrule=float,thunar
 
   # Lid switches
-  bindl =,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
-  bindl =,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, preferred,auto,auto"
+ # bindl =,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
+ # bindl =,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, preferred,auto,auto"
 
   $hyprutils = ~/scripts/hypr_util
 
