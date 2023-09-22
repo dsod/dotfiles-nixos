@@ -15,5 +15,6 @@
     ./rclone.nix
     ../../cloud
     ./imageviewer.nix
+    ./7zip.nix
   ];
 }

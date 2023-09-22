@@ -2,5 +2,6 @@
   imports = [
     ./vscode.nix
     ./postman.nix
+    ./nodejs.nix
   ];
 }
