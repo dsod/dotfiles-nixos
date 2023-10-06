@@ -100,8 +100,8 @@ in
       ForwardAgent yes
       HostName 16.16.26.88
 
-    # AWS Dev
-    Host qbnk-dev-bastion
+    # QBNK dev
+    Host shared-dev-bastion
       ForwardAgent yes
       HostName 13.48.117.77
 

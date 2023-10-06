@@ -47,6 +47,7 @@
 
   # Printer
   services.printing.enable = true;
+  services.printing.drivers = with pkgs; [ brlaser brgenml1lpr brgenml1cupswrapper ];
 
   xdg.portal = {
     enable = true;

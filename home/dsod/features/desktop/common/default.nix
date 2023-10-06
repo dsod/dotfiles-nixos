@@ -11,7 +11,7 @@
     ./qt.nix
     ./slack.nix
     ./filezilla.nix
-    ./dbeaver.nix
+    ./dbclients.nix
     ./rclone.nix
     ../../cloud
     ./imageviewer.nix
