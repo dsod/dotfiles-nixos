@@ -5,9 +5,10 @@
     package = pkgs.pass.withExtensions (p: [ p.pass-otp ]);
   };
 
-  services.pass-secret-service = {
-    enable = true;
-    storePath = "${config.home.homeDirectory}/.password-store";
-    extraArgs = [ "-e${config.programs.password-store.package}/bin/pass" ];
-  };
+  # TODO: Use instead of gnome-keyring
+  # services.pass-secret-service = {
+  #   enable = true;
+  #   storePath = "${config.home.homeDirectory}/.password-store";
+  #   extraArgs = [ "-e${config.programs.password-store.package}/bin/pass" ];
+  # };
 }
