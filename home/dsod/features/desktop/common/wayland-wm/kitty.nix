@@ -28,7 +28,7 @@ in
 
     settings = {
       allow_remote_control = true;
-      listen_on = "${config.xdg.cacheHome}/kitty_remote";
+      listen_on = "unix:${config.xdg.cacheHome}/kitty_remote";
       scrollback_lines = 4000;
       scrollback_pager_history_size = 2048;
       window_padding_width = 15;
