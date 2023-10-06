@@ -11,6 +11,7 @@ in
   xdg = {
     enable = true;
     cacheHome = config.home.homeDirectory + "/.local/cache";
+    configFile."mimeapps.list".force = true;
 
     mimeApps = {
       enable = true;

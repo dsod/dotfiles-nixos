@@ -100,6 +100,11 @@ in
       ForwardAgent yes
       HostName 16.16.26.88
 
+    # AWS Dev
+    Host qbnk-dev-bastion
+      ForwardAgent yes
+      HostName 13.48.117.77
+
     # Cleura
     Host cleura-bastion
       HostName 188.240.223.149

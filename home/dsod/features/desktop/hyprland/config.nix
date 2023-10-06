@@ -235,6 +235,4 @@ in
   bind=SUPERSHIFT,0,movetoworkspacesilent,10
 
   blurls=waybar
-
-  exec=gnome-keyring-daemon -sd
 ''

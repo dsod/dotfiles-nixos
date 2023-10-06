@@ -27,6 +27,17 @@
       enable = true;
       allowedTCPPorts = [
         9003 # XDebug
+
+        ## Firebase Emulators
+        4400
+        5050
+        5000
+        4000
+        8081
+        8085
+        9199
+        9299
+        4500
       ];
     };
   };
@@ -40,6 +51,8 @@
     dconf.enable = true;
   };
 
+  services.printing.enable = true;
+  services.printing.drivers = [ pkgs.hplipWithPlugin ];
 
   xdg.portal = {
     enable = true;

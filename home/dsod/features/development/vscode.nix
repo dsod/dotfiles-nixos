@@ -3,9 +3,10 @@
 {
   programs.vscode = {
     enable = true;
+    package = pkgs.vscode.fhs;
   };
 
-  home.sessionVariables = { 
-    EDITOR = "vscode"; 
+  home.sessionVariables = {
+    EDITOR = "code";
   };
 }
