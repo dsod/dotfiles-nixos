@@ -22,6 +22,7 @@
     extraHosts = ''
       127.0.0.1   qbank3-dev qbank3-dev.localhost minio mediaportals.localhost
       ::1   qbank3-dev qbank3-dev.localhost minio mediaportals.localhost
+      108.157.214.11 ers-staging.qbank.se
     '';
     firewall = {
       enable = true;

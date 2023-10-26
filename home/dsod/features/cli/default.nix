@@ -8,8 +8,6 @@
     ./git.nix
     ./gpg.nix
     ./nix-index.nix
-    ./pfetch.nix
-    ./nnn.nix
     ./screen.nix
     ./shellcolor.nix
     ./starship.nix
@@ -17,7 +15,6 @@
   ];
   home.packages = with pkgs; [
     comma # Install and run programs by sticking a , before them
-    distrobox # Nice escape hatch, integrates docker images with my environment
 
     bc # Calculator
     bottom # System viewer
@@ -35,5 +32,4 @@
 
     dig
   ];
-  home.file.".local/bin/nnn-hx".source = ./bin/nnn-hx.sh;
 }

@@ -9,6 +9,7 @@
   home.packages = with pkgs; [
     rofi-wayland
     rofi-bw
+    libnotify
   ] ++ (lib.optional passEnabled rofi-pass);
 
   xdg.configFile."rofi/config" = {

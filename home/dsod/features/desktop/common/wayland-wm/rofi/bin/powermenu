@@ -19,28 +19,28 @@ else
 	if [[ "$layout" == "TRUE" ]]; then
   # Section 1
 
-		# shutdown="⏻"
-		# reboot=""
-		# lock="󰍁"
-		# suspend="󰤄"
-  # Section 2
 		shutdown="⏻"
 		reboot=""
 		lock="󰍁"
 		suspend="󰤄"
+  # Section 2
+		# shutdown="⏻"
+		# reboot=""
+		# lock="󰍁"
+		# suspend="󰤄"
 
 
 	else
   # Section 1
-		# shutdown="⏻ Shutdown"
-		# reboot=" Restart"
-		# lock="󰍁 Lock"
-		# suspend="󰤄 Sleep"
-  # Section 2
 		shutdown="⏻ Shutdown"
 		reboot=" Restart"
 		lock="󰍁 Lock"
 		suspend="󰤄 Sleep"
+  # Section 2
+		# shutdown="⏻ Shutdown"
+		# reboot=" Restart"
+		# lock="󰍁 Lock"
+		# suspend="󰤄 Sleep"
 	fi
 	ddir="$HOME/.config/rofi/config"
 fi

@@ -20,9 +20,13 @@ kpanes() {
   # generate session
   echo "layout grid" > $session_file
   for host in $targethosts; do
-    echo "launch --title $host ssh -J $jumphost $USER@$host" >> $session_file
+    echo "launch --title $host kitten ssh -J $jumphost $USER@$host" >> $session_file
   done
-  echo "launch --allow-remote-control kitty +kitten broadcast" >> $session_file
+
+    if [ ${#targethosts[@]} > 1 ]; then
+        echo "launch --allow-remote-control kitty +kitten broadcast" >> $session_file
+    fi
+
   kitty --session $session_file
   rm $session_file
 }

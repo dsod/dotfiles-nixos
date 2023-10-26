@@ -100,6 +100,11 @@ in
       ForwardAgent yes
       HostName 16.16.26.88
 
+    # AWS Ericsson Production
+    Host ers-staging-bastion
+      ForwardAgent yes
+      HostName 16.170.58.178
+
     # QBNK dev
     Host shared-dev-bastion
       ForwardAgent yes

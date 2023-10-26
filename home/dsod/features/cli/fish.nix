@@ -43,9 +43,6 @@ in
       vi = vim;
       v = vim;
 
-      mutt = mkIf hasNeomutt "neomutt";
-      m = mutt;
-
       cik = mkIf hasKitty "clone-in-kitty --type os-window";
       ck = cik;
     };
@@ -70,7 +67,7 @@ in
       qbmig = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c 'php /qbank3/app/console.php qbank:dbrevision -e development -c qbank-dev.localhost'";
       qbmiginit = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c 'php /qbank3/app/console.php qbank:setup -e development -c qbank-dev.localhost'";
       qbtranslate = "docker compose -f ${qbank}/docker-compose.yml exec phpfpm /bin/sh -c 'php /qbank3/app/console.php gettext:compile'";
-      nnn = "nnn -P p";
+      ssh = "kitten ssh";
     };
     functions = {
       # Disable greeting

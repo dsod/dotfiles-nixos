@@ -23,7 +23,9 @@ in
     };
 
     shellIntegration = {
-      enableFishIntegration = true;
+      enableFishIntegration = false;
+      enableBashIntegration = false;
+      enableZshIntegration = false;
     };
 
     settings = {
@@ -71,12 +73,40 @@ in
     keybindings = {
       "f1" = "launch --allow-remote-control kitty +kitten broadcast --match-tab state:focused";
       "ctrl+c" = "copy_or_interrupt";
+      "ctrl+v" = "paste_from_clipboard";
       "ctrl+shift+l" = "next_layout";
       "ctrl+alt+enter" = "launch --cwd=current";
       "ctrl+e" = "launch --cwd=current nnn-hx";
     };
   };
-  xdg.configFile."kitty/ssh.conf".text = ''
-    env TERM=xterm-256color
-  '';
+    xdg.configFile."kitty/ssh.conf".text = ''
+      color_scheme Catppuccin-Macchiato
+      copy --symlink-strategy resolve --dest .bashrc .config/kitty/.bashrc
+      copy --symlink-strategy resolve --dest ~/.terminfo/xterm-kitty $TERMINFO
+      env TERM=xterm-kitty
+      env TERMINFO=~/.terminfo/xterm-kitty
+    '';
+
+    xdg.configFile."kitty/.bashrc".text = ''
+      # Commands that should be applied only for interactive shells.
+      [[ $- == *i* ]] || return
+
+      HISTFILESIZE=100000
+      HISTSIZE=10000
+
+      shopt -s histappend
+      shopt -s checkwinsize
+      shopt -s extglob
+      shopt -s globstar
+      shopt -s checkjobs
+
+      color_prompt=yes;
+
+      alias sudo='sudo TERMINFO="$TERMINFO"'
+
+      # Source global definitions
+      if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+      fi
+    '';
 }
