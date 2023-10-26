@@ -2,5 +2,6 @@
   imports = [
     ./vscode.nix
     ./nodejs.nix
+    ./kcachegrind.nix
   ];
 }

@@ -46,7 +46,8 @@ in
       ForwardAgent yes
       HostName 16.16.26.88
 
-    # AWS Ericsson Production
+
+    # AWS Ericsson Staging
     Host ers-staging-bastion
       ForwardAgent yes
       HostName 16.170.58.178
