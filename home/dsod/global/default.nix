@@ -7,6 +7,7 @@ in
     inputs.nix-colors.homeManagerModule
     (import ../features/cli { inherit pkgs qbankPath lib config; })
     ../features/helix
+    ../features/nvim
     ../features/productivity
     ../features/multimedia
     ../features/pass

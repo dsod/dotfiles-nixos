@@ -12,13 +12,6 @@
       '';
     }
     {
-      plugin = nvim-bqf;
-      type = "lua";
-      config = /* lua */ ''
-        require('bqf').setup{}
-      '';
-    }
-    {
       plugin = alpha-nvim;
       type = "lua";
       config = /* lua */ ''
@@ -71,13 +64,6 @@
       '';
     }
     {
-      plugin = range-highlight-nvim;
-      type = "lua";
-      config = /* lua */ ''
-        require('range-highlight').setup{}
-      '';
-    }
-    {
       plugin = indent-blankline-nvim;
       type = "lua";
       config = /* lua */ ''
@@ -123,6 +109,23 @@
         require('fidget').setup{
           text = {
             spinner = "dots",
+          },
+        }
+      '';
+    }
+    {
+      plugin = nvim-tree-lua;
+      type = "lua";
+      config = /* lua */ ''
+        require('nvim-tree').setup{
+          view = {
+            width = 30,
+          },
+          renderer = {
+            group_empty = true,
+          },
+          filters = {
+            dotfiles = true,
           },
         }
       '';

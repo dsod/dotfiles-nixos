@@ -8,6 +8,7 @@
     ./git.nix
     ./gpg.nix
     ./nix-index.nix
+    ./ranger.nix
     ./screen.nix
     ./shellcolor.nix
     ./starship.nix
@@ -31,5 +32,7 @@
     ltex-ls # Spell checking LSP
 
     dig
+
+    ripgrep # Grep fuzzy finding in nvim
   ];
 }

@@ -7,8 +7,8 @@
       config = /* lua */ ''
         local copilot = require('copilot')
         copilot.setup({
-          suggestion = { enabled = false },
-          panel = { enabled = false },
+          suggestion = { enabled = true },
+          panel = { enabled = true },
           copilot_node_command = "${lib.getExe pkgs.nodejs}",
         })
       '';

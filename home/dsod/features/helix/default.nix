@@ -3,10 +3,10 @@ let
   inherit (config) colorscheme;
 in
 {
-    home.sessionVariables = { 
-      COLORTERM = "truecolor"; 
+    home.sessionVariables = {
+      COLORTERM = "truecolor";
     };
-    
+
     home.packages = with pkgs; [
       nodePackages.intelephense
       nodePackages.typescript-language-server
