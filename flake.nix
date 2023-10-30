@@ -2,7 +2,7 @@
   description = "My NixOS configuration";
 
   nixConfig = {
-    extra-substituters = [ "https://cache.nixos.org/" "https://hyprland.cachix.org"];
+    extra-substituters = [ "https://cache.nixos.org/" "https://hyprland.cachix.org" ];
     extra-trusted-public-keys = [ "cache.nixos.org:kszZ/NSwE/TjhOcPPQ16IuUiuRSisdiIwhKZCxguaWg=" "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
   };
 
@@ -16,7 +16,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     hyprland.url = "github:hyprwm/Hyprland";
 
     hyprwm-contrib = {
@@ -55,7 +55,7 @@
 
       nixosConfigurations = {
         # Main desktop
-        dsod =  lib.nixosSystem {
+        dsod = lib.nixosSystem {
           modules = [ ./hosts/dsod ];
           specialArgs = { inherit inputs outputs; };
         };

@@ -6,9 +6,12 @@ M.mason = {
 }
 
 M.lazy = {
-    performance = {
-        reset_packpath = false,
+  performance = {
+    reset_packpath = false,
+    rtp = {
+      reset = false
     }
+  }
 }
 
 return M

@@ -7,20 +7,22 @@ local sources = {
   -- webdev stuff
   b.formatting.prettierd,
   b.diagnostics.eslint_d,
-  b.code_actions.eslint_d
+  b.code_actions.eslint_d,
 
   -- Lua
   b.formatting.stylua,
 
   -- cpp
   b.formatting.clang_format,
-  b.diagnostics.clang,
+  b.diagnostics.clang_check,
 
   -- Nix
-  b.formatting.nixpkgs-fmt,
+  b.formatting.nixpkgs_fmt,
 
   -- PHP
-  b.formatting.php-cs-fixer
+  b.formatting.phpcsfixer.with({
+    extra_args = {"--rules", "'@PSR12,single_quote,{\"array_syntax\": {\"syntax\": \"short\"}}'"}
+  }),
   b.diagnostics.psalm
 }
 
