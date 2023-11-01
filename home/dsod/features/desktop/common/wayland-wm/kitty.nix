@@ -76,7 +76,7 @@ in
       "ctrl+v" = "paste_from_clipboard";
       "ctrl+shift+l" = "next_layout";
       "ctrl+alt+enter" = "launch --cwd=current";
-      "ctrl+e" = "launch --cwd=current nnn-hx";
+      "f2" = "new_window_with_cwd";
     };
   };
     xdg.configFile."kitty/ssh.conf".text = ''

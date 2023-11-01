@@ -1,0 +1,23 @@
+configuration {
+    modi: "dmenu";
+    show-icons: false;
+    terminal: "kitty";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: false;
+}
+
+@theme "catppuccin-macchiato"
+
+window {
+  width: 700px;
+}
+
+element {
+    children: [ element-text ];
+}
+
+listview {
+    columns: 1;
+    lines: 6;
+}

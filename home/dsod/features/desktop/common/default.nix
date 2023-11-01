@@ -1,4 +1,4 @@
-{ pkgs, lib, outputs, ... }:
+{... }:
 {
   imports = [
     ./deluge.nix
@@ -16,5 +16,6 @@
     ../../cloud
     ./imageviewer.nix
     ./7zip.nix
+    ./bruno.nix
   ];
 }

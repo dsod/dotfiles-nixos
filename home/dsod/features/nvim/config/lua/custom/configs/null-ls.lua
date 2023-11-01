@@ -5,9 +5,9 @@ local b = null_ls.builtins
 local sources = {
 
   -- webdev stuff
-  b.formatting.prettierd,
-  b.diagnostics.eslint_d,
-  b.code_actions.eslint_d,
+  b.formatting.prettier,
+  b.diagnostics.eslint,
+  b.code_actions.eslint,
 
   -- Lua
   b.formatting.stylua,
@@ -21,7 +21,7 @@ local sources = {
 
   -- PHP
   b.formatting.phpcsfixer.with({
-    extra_args = {"--rules", "'@PSR12,single_quote,{\"array_syntax\": {\"syntax\": \"short\"}}'"}
+    extra_args = {"--rules", "@PSR12,single_quote"}
   }),
   b.diagnostics.psalm
 }

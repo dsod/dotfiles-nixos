@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+baseFolder=$2
+cmd=$4
+filter=$3
+findRecursive() {
+  choice=$(\
+    find $baseFolder -type d -name $filter | cut -d '.' -f 1 | rofi -dmenu -theme $HOME/.config/rofi/config/browser.rasi \
+  )
+
+  if [ -z "$choice" ];then
+    notify-send "No project selected" -i error -t 3000
+    exit 3
+  fi
+
+  cd $choice && ${TERMINAL} $SHELL -ic "$cmd $@"
+}
+
+
+if [[ "$1" == "--recursive" ]]; then
+  findRecursive
+else
+    echo "Usage: $0 [--recursive <baseFolder> <filter> <command>]"
+fi
