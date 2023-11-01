@@ -8,6 +8,7 @@
     ./waybar.nix
     ./rofi
     ./zathura.nix
+    ./remote-desktop.nix
   ];
 
   home.packages = with pkgs; [
