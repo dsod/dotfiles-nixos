@@ -135,15 +135,16 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1696968187,
-        "narHash": "sha256-hnTQQjz7l4dCr6UXgJuZMBkZzql+gT2zQGXWgwv7Bas=",
+        "lastModified": 1695424072,
+        "narHash": "sha256-a0nqm82brOC0QroGOXxcIKxOMAfl9I6pfFOYjCeRzO0=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "d83357f4976a240a4418a1a0a16641518a47da25",
+        "rev": "1b48642fd15c433c53876f1b933dcd46265caf8f",
         "type": "github"
       },
       "original": {
         "owner": "hyprwm",
+        "ref": "v0.30.0",
         "repo": "Hyprland",
         "type": "github"
       }
@@ -446,18 +447,18 @@
       "flake": false,
       "locked": {
         "host": "gitlab.freedesktop.org",
-        "lastModified": 1697909146,
-        "narHash": "sha256-jU0I6FoCKnj4zIBL4daosFWh81U1fM719Z6cae8PxSY=",
+        "lastModified": 1695277534,
+        "narHash": "sha256-LEIUGXvKR5DYFQUTavC3yifcObvG4XZUUHfxXmu8nEM=",
         "owner": "wlroots",
         "repo": "wlroots",
-        "rev": "47bf87ade2bd32395615a385ebde1fefbcdf79a2",
+        "rev": "98a745d926d8048bc30aef11b421df207a01c279",
         "type": "gitlab"
       },
       "original": {
         "host": "gitlab.freedesktop.org",
         "owner": "wlroots",
         "repo": "wlroots",
-        "rev": "47bf87ade2bd32395615a385ebde1fefbcdf79a2",
+        "rev": "98a745d926d8048bc30aef11b421df207a01c279",
         "type": "gitlab"
       }
     },

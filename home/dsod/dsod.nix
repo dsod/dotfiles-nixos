@@ -7,6 +7,7 @@
         }
     ))
     ./features/desktop/hyprland
+    ./features/development
   ];
 
   colorscheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
@@ -23,7 +24,7 @@
 
   monitors = [
     {
-      name = "DP-1";
+              name = "DP-1";
       width = 2560;
       height = 1440;
       refreshRate = 144;
