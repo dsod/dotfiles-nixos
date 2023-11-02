@@ -14,7 +14,7 @@ findRecursive() {
 	fi
 	notify-send "Opening $choice with $cmd" -t 3000
 
-	cd $choice && ${TERMINAL} $SHELL -ic "$cmd $@"
+	cd $choice && ${TERMINAL} $SHELL -ic "$cmd . $@"
 }
 
 if [[ "$1" == "--recursive" ]]; then
