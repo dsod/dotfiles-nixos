@@ -124,7 +124,7 @@ in
     # Program bindings
     bind=SUPER,q,exec,${TERMINAL}
     bind=SUPER,w,killactive
-    bind=SUPER,e,exec, bash $HOME/.config/rofi/bin/browser --recursive $HOME/dev .git nvim +NvimTree
+    bind=SUPER,e,exec, bash $HOME/.config/rofi/bin/browser --recursive ~/dev .git nvim +NvimTree
     bind=SUPER,b,exec,${BROWSER}
     bind=SUPER,x,exec,thunar
 
