@@ -21,6 +21,7 @@
       permittedInsecurePackages = [
         "openssl-1.1.1u"
         "nodejs-14.21.3"
+        "nodejs-16.20.2"
       ];
     };
   };
