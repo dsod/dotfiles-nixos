@@ -11,7 +11,18 @@ return {
         lua_ls = {},
         bashls = {},
         nil_ls = {},
-        intelephense = {},
+        intelephense = {
+          init_options = {
+            licenceKey = "00HAMU0OFBGZNXO",
+          },
+          settings = {
+            intelephense = {
+              diagnostics = {
+                enable = false,
+              },
+            },
+          },
+        },
       },
     },
   },

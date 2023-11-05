@@ -5,7 +5,6 @@ return {
       php = { "psalm" },
       nix = { "nix" },
       css = { "stylelint" },
-      html = { "tidy" },
     },
   },
 }

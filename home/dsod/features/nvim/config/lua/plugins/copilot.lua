@@ -7,4 +7,9 @@ return {
       suggestion = { enabled = true, auto_trigger = true },
     },
   },
+  {
+    "nvim-cmp",
+    ---@param opts cmp.ConfigSchema
+    opts = function(_, opts) end,
+  },
 }

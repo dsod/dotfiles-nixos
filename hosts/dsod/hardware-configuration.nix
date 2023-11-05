@@ -1,4 +1,4 @@
-{config, lib, pkgs, modulesPath, ...}:
+{ config, lib, pkgs, modulesPath, ... }:
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
@@ -19,14 +19,16 @@
 
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/bbc6fa61-4d9d-449f-b1c0-48552423c5b3";
+    {
+      device = "/dev/disk/by-uuid/bbc6fa61-4d9d-449f-b1c0-48552423c5b3";
       fsType = "ext4";
     };
 
   boot.initrd.luks.devices."luks-c89a3cd1-42fc-4eb8-8b77-bca459ed5801".device = "/dev/disk/by-uuid/c89a3cd1-42fc-4eb8-8b77-bca459ed5801";
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/A9A0-A4BE";
+    {
+      device = "/dev/disk/by-uuid/A9A0-A4BE";
       fsType = "vfat";
     };
 

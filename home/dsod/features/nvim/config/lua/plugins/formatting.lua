@@ -8,6 +8,7 @@ return {
         css = { "prettier" },
         html = { "prettier" },
         xml = { "xmlformat" },
+        markdown = { "markdownlint" },
       },
     },
   },
