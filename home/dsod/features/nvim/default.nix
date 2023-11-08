@@ -32,8 +32,7 @@
       gofumpt # Go
 
       # Linters
-      php81Packages.psalm # PHP
-      nodePackages.eslint_d # JS/TS
+      nodePackages.eslint # JS/TS
       vale # Markdown
       nodePackages.stylelint # css
       yamllint # Yaml
@@ -47,20 +46,12 @@
 
       # Debugging
       delve # Go
-      #vscode-js-debug
-      #vscode-php-debug
     ];
   };
 
-  #xdg.dataFile."vscode-js-debug" = {
-  #  source = pkgs.vscode-js-debug;
-  #  recursive = true;
-  #};
-
-  #xdg.dataFile."vscode-php-debug" = {
-  #  source = pkgs.vscode-php-debug;
-  #  recursive = true;
-  #};
+  home.packages = with pkgs; [
+    php81Packages.psalm
+  ];
 
   xdg.configFile."nvim" = {
     recursive = true;

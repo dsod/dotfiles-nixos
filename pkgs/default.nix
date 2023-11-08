@@ -21,6 +21,6 @@
   plymouth-spinner-monochrome = pkgs.callPackage ./plymouth-spinner-monochrome { };
 
   # DAP Debuggers
-  #vscode-js-debug = pkgs.callPackage ./vscode-js-debug { };
+  vscode-js-debug = pkgs.callPackage ./vscode-js-debug { };
   #vscode-php-debug = pkgs.callPackage ./vscode-php-debug { };
 }
