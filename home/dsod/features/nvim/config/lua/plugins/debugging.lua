@@ -91,6 +91,57 @@ return {
     dependencies = {
       { "jay-babu/mason-nvim-dap.nvim", enable = false },
     },
+    keys = {
+      {
+        "<F6>",
+        function()
+          require("dap").continue()
+        end,
+        desc = "Continue",
+      },
+      {
+        "<F5>",
+        function()
+          require("dap").continue({ before = get_args })
+        end,
+        desc = "Run with Args",
+      },
+      {
+        "<F7>",
+        function()
+          require("dap").run_to_cursor()
+        end,
+        desc = "Run to Cursor",
+      },
+      {
+        "<F11>",
+        function()
+          require("dap").step_into()
+        end,
+        desc = "Step Into",
+      },
+      {
+        "<F23>",
+        function()
+          require("dap").step_out()
+        end,
+        desc = "Step Out",
+      },
+      {
+        "<F10>",
+        function()
+          require("dap").step_over()
+        end,
+        desc = "Step Over",
+      },
+      {
+        "<F8>",
+        function()
+          require("dap").terminate()
+        end,
+        desc = "Terminate",
+      },
+    },
   },
   {
     "xdebug/vscode-php-debug",

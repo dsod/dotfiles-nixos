@@ -94,7 +94,7 @@ in
     # Startup
     exec-once = blueman-applet
     exec-once = nm-applet --indicator
-    exec-once=waybar
+    exec-once = waybar
     exec-once = mako
     exec-once = swayidle -w
     exec-once = wpaperd
@@ -110,6 +110,8 @@ in
     windowrule=float,nm-connection-editor
     windowrule=float,pavucontrol
     windowrule=float,thunar
+    windowrule=fullscreen,cs2
+
 
     # Lid switches
    # bindl =,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
