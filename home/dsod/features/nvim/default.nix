@@ -18,18 +18,16 @@
       nodePackages.dockerfile-language-server-nodejs # Docker
       nodePackages.yaml-language-server # Yaml
       nil # nix
-      marksman # Markdown
 
       # Formatters
       stylua # Lua
       nixpkgs-fmt # Nix
       nodePackages.prettier # JavaScript / TypeScript / CSS / HTML
-      php81Packages.php-cs-fixer # PHP
-      xmlformat # XML
       yamlfmt # Yaml
-      nodePackages.markdownlint-cli # Markdown
       shfmt # Bash
       gofumpt # Go
+      php81Packages.php-cs-fixer # PHP
+      xmlformat
 
       # Linters
       nodePackages.eslint # JS/TS
@@ -57,4 +55,18 @@
     recursive = true;
     source = ./config;
   };
+
+  xdg.configFile."nvim/formatters/xmlformat.conf".text = ''
+        # GLS XML Format rules
+    # See http://www.kitebird.com/software/xmlformat/
+    *DEFAULT
+      #format = block
+      entry-break = 1
+      #element-break = 1
+      #exit-break = 1
+      subindent = 4
+      #normalize = no
+      #wrap-length = 10
+      #wrap-type = none
+  '';
 }

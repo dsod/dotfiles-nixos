@@ -1,3 +1,11 @@
+-- let php-cs-fixer do formatting
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "php" },
+  callback = function()
+    vim.b.autoformat = false
+  end,
+})
+
 return {
   {
     "stevearc/conform.nvim",
@@ -5,10 +13,15 @@ return {
       formatters_by_ft = {
         php = { "php_cs_fixer" },
         nix = { "nixpkgs_fmt" },
-        css = { "prettier" },
-        html = { "prettier" },
         xml = { "xmlformat" },
-        markdown = { "markdownlint" },
+      },
+      formatters = {
+        xmlformat = {
+          args = {
+            "--config-file=/home/dsod/.config/nvim/formatters/xmlformat.conf",
+            "-",
+          },
+        },
       },
     },
   },

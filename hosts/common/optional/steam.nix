@@ -1,12 +1,13 @@
-{pkgs, config, ...}:
+{ pkgs, config, ... }:
 let
-  proton-ge-custom = pkgs.proton-ge-custom.override {};
+  proton-ge-custom = pkgs.proton-ge-custom.override { };
 in
 {
   environment.systemPackages = with pkgs; [
     proton-ge-custom
     gamemode
     mangohud
+    gamescope
   ];
 
   environment.variables.STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${pkgs.proton-ge-custom}";

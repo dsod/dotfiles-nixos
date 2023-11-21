@@ -1,3 +1,5 @@
+vim.lsp.set_log_level("debug")
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -17,11 +19,18 @@ return {
           },
           settings = {
             intelephense = {
+              telemetry = false,
+              format = {
+                enable = false,
+              },
               diagnostics = {
                 enable = false,
               },
             },
           },
+        },
+        psalm = {
+          cmd = { "vendor/bin/psalm.phar", "--language-server", "--verbose" },
         },
       },
     },
