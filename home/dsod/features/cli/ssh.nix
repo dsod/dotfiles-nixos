@@ -52,6 +52,10 @@ in
       ForwardAgent yes
       HostName 16.170.58.178
 
+    # QBNK dev
+    Host shared-dev-bastion
+      ForwardAgent yes
+      HostName 13.48.117.77
     # Cleura
     Host cleura-bastion
       HostName 188.240.223.149
@@ -112,5 +116,5 @@ in
     Host cleura-mediaportal02
       HostName 10.15.0.12
       ProxyJump cleura-bastion
-    '';
+  '';
 }

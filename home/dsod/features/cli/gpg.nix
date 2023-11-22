@@ -170,6 +170,6 @@ in
     Host cleura-mediaportal02
       HostName 10.15.0.12
       ProxyJump cleura-bastion
-    '';
+  '';
 }
 # vim: filetype=nix
