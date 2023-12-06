@@ -15,7 +15,7 @@ in
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
-    sshKeys = [ "B4DC7FB6F76CE29D06A858AD8AAC27A5744B6CD5" "A94BBC5EBD961383E7617546DFA011F89CB302FA" ];
+    sshKeys = [ "B4DC7FB6F76CE29D06A858AD8AAC27A5744B6CD5" ];
     pinentryFlavor = pinentry.name;
     enableExtraSocket = true;
     defaultCacheTtl = 60 * 60 * 2;
@@ -41,6 +41,10 @@ in
         settings = {
           trust-model = "tofu+pgp";
         };
+        publicKeys = [{
+          source = ./gpg_public.asc;
+          trust = 5;
+        }];
       };
     };
 

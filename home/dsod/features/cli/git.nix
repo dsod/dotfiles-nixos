@@ -9,7 +9,7 @@
       add-nowhitespace = "!git diff -U0 -w --no-color | git apply --cached --ignore-whitespace --unidiff-zero -";
     };
     userName = "dsod";
-    userEmail = "d.soderling@live.se";
+    userEmail = "daniel.soderling@gmail.com";
     extraConfig = {
       feature.manyFiles = true;
       init.defaultBranch = "main";
@@ -17,6 +17,9 @@
       push.autoSetupRemote = true;
     };
     lfs.enable = true;
-    ignores = [ ".direnv" "result" ];
+    ignores = [ ".direnv" "result" ".devenv" ];
+    signing = {
+      signByDefault = true;
+    };
   };
 }
