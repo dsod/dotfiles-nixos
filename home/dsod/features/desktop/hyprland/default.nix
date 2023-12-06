@@ -25,6 +25,7 @@
 
   home.packages = with pkgs; [
     inputs.hyprwm-contrib.packages.${system}.grimblast
+    inputs.hyprwm-contrib.packages.${system}.scratchpad
     swayidle
     dconf
     openssl # Might be required by certain applications like Postman
@@ -37,7 +38,6 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.default;
-    enableNvidiaPatches = true;
     extraConfig =
       (import ./monitors.nix {
         inherit lib;

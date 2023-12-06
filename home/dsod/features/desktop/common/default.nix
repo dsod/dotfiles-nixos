@@ -1,4 +1,4 @@
-{... }:
+{ ... }:
 {
   imports = [
     ./deluge.nix
@@ -17,5 +17,6 @@
     ./imageviewer.nix
     ./7zip.nix
     ./bruno.nix
+    ./notes.nix
   ];
 }

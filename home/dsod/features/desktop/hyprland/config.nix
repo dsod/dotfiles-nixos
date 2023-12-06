@@ -17,6 +17,7 @@ in
     col.inactive_border=0xff${colorscheme.colors.base02}
     col.nogroup_border_active=0xff${colorscheme.colors.base0B}
     col.nogroup_border=0xff${colorscheme.colors.base04}
+    allow_tearing=true
   }
 
     decoration {
@@ -102,6 +103,7 @@ in
     exec-once = cliphist wipe && wl-paste --type text --watch cliphist store #Stores only text data
     exec-once = wl-paste --type image --watch cliphist store #Stores only image data
 
+    # Window rules
     windowrule=workspace 2 silent,google-chrome-stable
     windowrule=workspace 5 silent,slack
     windowrule=workspace 5 silent,spotify
@@ -110,7 +112,18 @@ in
     windowrule=float,nm-connection-editor
     windowrule=float,pavucontrol
     windowrule=float,thunar
-    windowrule=fullscreen,cs2
+    windowrulev2 = fullscreen, class:^(cs2)$
+    windowrulev2 = immediate, class:^(cs2)$
+
+    windowrulev2 = float, class:^(obsidian)$
+
+    # Auto-start
+    exec-once=[workspace 1 silent] kitty
+    exec-once=[workspace 2 silent] google-chrome-stable
+    exec-once=[workspace 5 silent] slack
+    exec-once=[workspace 5 silent] discord
+    exec-once=[workspace 5 silent] spotify
+    exec-once=[workspace scratchpad silent] obsidian
 
     # Lid switches
    # bindl =,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
@@ -138,6 +151,10 @@ in
     bind=SUPER,D,exec,rofi-bw --listAll
     bind=SUPER,v,exec, cliphist list | rofi -x11 -theme $HOME/.config/rofi/config/dmenu -dmenu -p "Search..." | cliphist decode | wl-copy
     bind=SUPER,c,exec,hyprpicker -a
+
+    # Scratchpad
+    bind = SUPER, r, exec, scratchpad
+    bind = SUPERSHIFT, r, exec, scratchpad -g
 
     # Reset waybar
     bind=SUPER,F1,exec, bash -c "~/.scripts/hypr_util --rwb"

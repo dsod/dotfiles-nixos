@@ -47,10 +47,6 @@
     ];
   };
 
-  home.packages = with pkgs; [
-    php81Packages.psalm
-  ];
-
   xdg.configFile."nvim" = {
     recursive = true;
     source = ./config;

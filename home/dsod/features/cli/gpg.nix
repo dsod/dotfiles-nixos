@@ -15,7 +15,7 @@ in
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
-    sshKeys = [ "B4DC7FB6F76CE29D06A858AD8AAC27A5744B6CD5" "F69AF42C79689550165DD2C6249A5F337CF53B8B" ];
+    sshKeys = [ "B4DC7FB6F76CE29D06A858AD8AAC27A5744B6CD5" "A94BBC5EBD961383E7617546DFA011F89CB302FA" ];
     pinentryFlavor = pinentry.name;
     enableExtraSocket = true;
     defaultCacheTtl = 60 * 60 * 2;

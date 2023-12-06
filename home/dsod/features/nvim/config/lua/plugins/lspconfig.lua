@@ -1,5 +1,3 @@
-vim.lsp.set_log_level("debug")
-
 return {
   {
     "neovim/nvim-lspconfig",
@@ -21,7 +19,7 @@ return {
             intelephense = {
               telemetry = false,
               format = {
-                enable = false,
+                enable = true,
               },
               diagnostics = {
                 enable = false,
@@ -30,9 +28,25 @@ return {
           },
         },
         psalm = {
-          cmd = { "vendor/bin/psalm.phar", "--language-server", "--verbose" },
+          cmd = {
+            "vendor/bin/psalm.phar",
+            "--language-server",
+            "--show-diagnostic-warnings=false",
+            "--verbose",
+            "--use-baseline=psalm-baseline.xml",
+          },
+        },
+        smarty_ls = {
+          cmd = {
+            vim.fn.stdpath("data") .. "/lazy/vscode-smarty-langserver-extracted/bin/smarty-language-server",
+            "--stdio",
+          },
         },
       },
     },
+  },
+  {
+    "landeaux/vscode-smarty-langserver-extracted",
+    build = "npm install && npm run build",
   },
 }
