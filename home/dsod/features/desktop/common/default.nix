@@ -12,7 +12,7 @@
     ./slack.nix
     ./filezilla.nix
     ./dbclients.nix
-    ./rclone.nix
+    ./rclone
     ../../cloud
     ./imageviewer.nix
     ./7zip.nix
