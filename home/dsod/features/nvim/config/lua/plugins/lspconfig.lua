@@ -22,18 +22,9 @@ return {
                 enable = true,
               },
               diagnostics = {
-                enable = false,
+                enable = true,
               },
             },
-          },
-        },
-        psalm = {
-          cmd = {
-            "vendor/bin/psalm.phar",
-            "--language-server",
-            "--show-diagnostic-warnings=false",
-            "--verbose",
-            "--use-baseline=psalm-baseline.xml",
           },
         },
         smarty_ls = {

@@ -22,6 +22,10 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" "i686-linux" ];
   #boot.blacklistedKernelModules = [ "i915" ];
   #boot.kernelParams = [ "nvidia_drm.modeset=1" "ibt=off" ];
+  # Use the systemd-boot EFI boot loader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
 
   programs.light.enable = true;
 

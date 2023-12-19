@@ -19,8 +19,8 @@
     lfs.enable = true;
     ignores = [ ".direnv" "result" ".devenv" ];
     signing = {
-      key = "E9C5F4922D7F488A";
-      signByDefault = true;
+      key = "D1143A08BCBB1D288B4B8DC02904956C7390AFC3";
+      signByDefault = false;
     };
   };
 }

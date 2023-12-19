@@ -5,32 +5,52 @@
 
 {
   imports =
-    [];
+    [ (modulesPath + "/installer/scan/not-detected.nix")
+    ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-
-  boot.loader = {
-    systemd-boot = {
-      enable = true;
-      consoleMode = "max";
+  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.kernelModules = [ "dm-snapshot" "vfat" "nls_cp437" "nls_iso8859-1" "usbhid" ];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
+  boot.initrd.luks = {
+    yubikeySupport = true;
+    devices = {
+      "nixos-enc" = {
+    device = "/dev/nvme0n1p2";
+    preLVM = true; # You may want to set this to false if you need to start a network service first
+    yubikey = {
+      slot = 2;
+      twoFactor = false; # Set to false if you did not set up a user password.
+      storage = {
+        device = "/dev/nvme0n1p1";
+      };
     };
-    efi.canTouchEfiVariables = true;
+  };
+    };
   };
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/9892a482-2531-4c72-ad60-3db5dcb6e88c";
-      fsType = "ext4";
+    { device = "/dev/disk/by-uuid/5e021ee8-7d86-4897-9502-d525474eaecb";
+      fsType = "btrfs";
+      options = [ "subvol=root" ];
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/5e021ee8-7d86-4897-9502-d525474eaecb";
+      fsType = "btrfs";
+      options = [ "subvol=home" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/8553-C1F6";
+    { device = "/dev/disk/by-uuid/12CE-A600";
       fsType = "vfat";
     };
 
-  swapDevices = [ ];
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/dcdedd9d-b9a4-4cca-9e8b-d904fba70045"; }
+    ];
 
   services.hardware.bolt.enable = true;
-
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
@@ -42,3 +62,4 @@
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
+
