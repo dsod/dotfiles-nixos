@@ -15,6 +15,7 @@
     ../common/optional/bluetooth.nix
     ../common/optional/thunar.nix
     ../common/optional/docker.nix
+    ../common/optional/nix-ld.nix
   ];
 
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
