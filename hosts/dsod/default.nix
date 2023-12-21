@@ -9,6 +9,7 @@
     ../common/global
     ../common/users/dsod
 
+    ../common/optional/nix-ld.nix
     ../common/optional/pipewire.nix
     ../common/optional/wireless.nix
     ../common/optional/bluetooth.nix
