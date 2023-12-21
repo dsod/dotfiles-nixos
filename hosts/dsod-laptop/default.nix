@@ -1,8 +1,6 @@
 { pkgs, inputs, config, ... }: {
   imports = [
-    inputs.hardware.nixosModules.common-cpu-intel
-    #inputs.hardware.nixosModules.common-gpu-nvidia
-    inputs.hardware.nixosModules.common-pc-ssd
+    inputs.hardware.nixosModules.dell-xps-15-9500-nvidia
 
     ./hardware-configuration.nix
 
@@ -20,15 +18,11 @@
 
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   boot.kernelModules = [ "coretemp" ];
+  boot.kernelParams = [ "acpi_rev_override=1" ];
   boot.binfmt.emulatedSystems = [ "aarch64-linux" "i686-linux" ];
-  #boot.blacklistedKernelModules = [ "i915" ];
-  #boot.kernelParams = [ "nvidia_drm.modeset=1" "ibt=off" ];
-  # Use the systemd-boot EFI boot loader.
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-
-  programs.light.enable = true;
 
   networking = {
     hostName = "dsod-laptop";
@@ -41,13 +35,13 @@
     ];
   };
 
-  services.thermald.enable = true;
   environment.etc."sysconfig/lm_sensors".text = ''
     HWMON_MODULES="coretemp"
   '';
 
   programs = {
     dconf.enable = true;
+    light.enable = true;
   };
 
   # Printer
@@ -56,32 +50,20 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-    ];
+    extraPortals = [ pkgs.inputs.hyprland.xdg-desktop-portal-hyprland ];
+    configPackages = [ pkgs.inputs.hyprland.hyprland ];
   };
 
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    open = true;
-    nvidiaSettings = true;
-    prime = {
-      offload.enable = false;
-      sync.enable = false;
-      # intelBusId = "PCI:0:2:0";
-      # nvidiaBusId = "PCI:1:0:0";
+  hardware = {
+    nvidia = {
+      modesetting.enable = true;
+    };
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
     };
   };
-
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
 
   system.stateVersion = "23.11";
 }

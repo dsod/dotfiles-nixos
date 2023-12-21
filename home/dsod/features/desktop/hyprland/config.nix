@@ -5,7 +5,8 @@ in
 ''
     monitor=,preferred,auto,auto
     monitor=desc:Samsung Electric Company C27HG7x HTHK900737, 2560x1440@144, auto, auto
-    monitor=desc:Samsung Electric Company C34H89x HTOM900062, 3440x1440@100, auto, auto
+    #monitor=desc:Samsung Electric Company C34H89x HTOM900062, 3440x1440, auto, 1
+    #monitor=desc:Sharp Corporation 0x14D0, 2560x1440, auto, 2
     monitor=desc:Samsung Electric Company SyncMaster H1AK500000,preferred,auto,auto,mirror,eDP-1
 
   general {
@@ -149,7 +150,7 @@ in
     bind=SUPER,p,exec, sh $HOME/.config/rofi/bin/powermenu
     bind=SUPER,s,exec,rofi-pass
     bind=SUPER,D,exec,rofi-bw --listAll
-    bind=SUPER,v,exec, cliphist list | rofi -x11 -theme $HOME/.config/rofi/config/dmenu -dmenu -p "Search..." | cliphist decode | wl-copy
+    bind=SUPER,v,exec, cliphist list | rofi -theme $HOME/.config/rofi/config/dmenu -dmenu -p "Search..." | cliphist decode | wl-copy
     bind=SUPER,c,exec,hyprpicker -a
 
     # Scratchpad
@@ -255,3 +256,4 @@ in
 
     blurls=waybar
 ''
+

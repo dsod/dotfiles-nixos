@@ -45,7 +45,7 @@ in
         position = "top";
         modules-left = [
           "custom/menu"
-          "wlr/workspaces"
+          "hyprland/workspaces"
           "custom/currentplayer"
           "custom/player"
         ];
@@ -70,13 +70,13 @@ in
         "backlight" = {
           device = "intel_backlight";
           format = "{icon} {percent}%";
-          format-icons = ["󰃞" "󰃟" "󰃠"];
+          format-icons = [ "󰃞" "󰃟" "󰃠" ];
           on-scroll-up = "light -A 5";
           on-scroll-down = "light -U 5";
           min-length = 6;
         };
 
-        "wlr/workspaces" = {
+        "hyprland/workspaces" = {
           format = "";
           on-click = "activate";
         };
@@ -88,27 +88,27 @@ in
         clock = {
           format = "{:%m/%d %H:%M}";
           tooltip-format = "<tt><small>{calendar}</small></tt>";
-      calendar = {
-                 mode           = "year";
-                 mode-mon-col   = 3;
-                 weeks-pos      = "right";
-                 on-scroll      = 1;
-                 on-click-right = "mode";
-                 format = {
-                            months =     "<span color='#ffead3'><b>{}</b></span>";
-                            days =       "<span color='#ecc6d9'><b>{}</b></span>";
-                            weeks =      "<span color='#99ffdd'><b>W{}</b></span>";
-                            weekdays =   "<span color='#ffcc66'><b>{}</b></span>";
-                            today =      "<span color='#ff6699'><b><u>{}</u></b></span>";
-                              };
-                  };
-      actions =  {
-                  on-click-right = "mode";
-                  on-click-forward = "tz_up";
-                  on-click-backward = "tz_down";
-                  on-scroll-up = "shift_up";
-                  on-scroll-down = "shift_down";
-                  };
+          calendar = {
+            mode = "year";
+            mode-mon-col = 3;
+            weeks-pos = "right";
+            on-scroll = 1;
+            on-click-right = "mode";
+            format = {
+              months = "<span color='#ffead3'><b>{}</b></span>";
+              days = "<span color='#ecc6d9'><b>{}</b></span>";
+              weeks = "<span color='#99ffdd'><b>W{}</b></span>";
+              weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+              today = "<span color='#ff6699'><b><u>{}</u></b></span>";
+            };
+          };
+          actions = {
+            on-click-right = "mode";
+            on-click-forward = "tz_up";
+            on-click-backward = "tz_down";
+            on-scroll-up = "shift_up";
+            on-scroll-down = "shift_down";
+          };
         };
         cpu = {
           format = " {usage}%";
@@ -151,7 +151,7 @@ in
           on-scroll-up = "pactl set-sink-volume @DEFAULT_SINK@ +2%";
         };
         "pulseaudio#microphone" = {
-          format =  "{format_source} {source_volume}%";
+          format = "{format_source} {source_volume}%";
           format-source = "";
           format-source-muted = "";
           scroll-step = 2;

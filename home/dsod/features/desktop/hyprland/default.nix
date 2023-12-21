@@ -1,4 +1,8 @@
-{ inputs, lib, config, pkgs, ... }: {
+{ inputs, lib, config, pkgs, osConfig, ... }:
+let
+  hyprlandExecCommand = if osConfig.hardware.nvidia.prime.offload.enable then "nvidia-offload Hyprland" else "Hyprland";
+in
+{
   imports = [
     ../common
     ../common/wayland-wm
@@ -8,17 +12,17 @@
   programs = {
     fish.loginShellInit = ''
       if test (tty) = "/dev/tty1"
-        exec Hyprland &> /dev/null
+        exec ${hyprlandExecCommand} &> /dev/null
       end
     '';
     zsh.loginExtra = ''
       if [ "$(tty)" = "/dev/tty1" ]; then
-        exec Hyprland &> /dev/null
+        exec ${hyprlandExecCommand} &> /dev/null
       fi
     '';
     zsh.profileExtra = ''
       if [ "$(tty)" = "/dev/tty1" ]; then
-        exec Hyprland &> /dev/null
+        exec ${hyprlandExecCommand} &> /dev/null
       fi
     '';
   };

@@ -22,7 +22,7 @@
     "WLR_NO_HARDWARE_CURSORS" = "1";
     "WLR_EGL_NO_MODIFIRES" = "1";
     "WLR_DRM_NO_ATOMIC" = "1";
-    #"OCL_ICD_VENDORS" = "/run/opengl-driver/etc/OpenCL/vendors";
+    "WLR_RENDERER" = "vulkan";
   };
 
   xresources.properties = {
