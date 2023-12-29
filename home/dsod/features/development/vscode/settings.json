@@ -87,5 +87,6 @@
   "workbench.iconTheme": "catppuccin-macchiato",
   "nxConsole.showNodeVersionOnStartup": false,
   "git.enableSmartCommit": true,
-  "git.autofetch": true
+  "git.autofetch": true,
+  "git.confirmSync": false
 }
