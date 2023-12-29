@@ -5,13 +5,14 @@ let
   hasRipgrep = hasPackage "ripgrep";
   hasEza = hasPackage "eza";
   hasNeovim = config.programs.neovim.enable;
+  hasVscode = config.programs.vscode.enable;
   hasEmacs = config.programs.emacs.enable;
   hasNeomutt = config.programs.neomutt.enable;
   hasShellColor = config.programs.shellcolor.enable;
   hasKitty = config.programs.kitty.enable;
   shellcolor = "${pkgs.shellcolord}/bin/shellcolor";
-  portalSpawner="${qbankPath}/mediaportal-docker-environment";
-  qbank="${qbankPath}/docker-compose-qbank3";
+  portalSpawner = "${qbankPath}/mediaportal-docker-environment";
+  qbank = "${qbankPath}/docker-compose-qbank3";
 in
 {
   programs.fish = {
@@ -42,6 +43,8 @@ in
       vim = mkIf hasNeovim "nvim";
       vi = vim;
       v = vim;
+
+      c = mkIf hasVscode "code-insiders";
 
       cik = mkIf hasKitty "clone-in-kitty --type os-window";
       ck = cik;
@@ -74,7 +77,7 @@ in
       fish_greeting = "";
       # Grep using ripgrep and pass to nvim
       nvimrg = mkIf (hasNeomutt && hasRipgrep) "nvim -q (rg --vimgrep $argv | psub)";
-     # Integrate ssh with shellcolord
+      # Integrate ssh with shellcolord
     };
     interactiveShellInit =
       # Open command buffer in vim when alt+e is pressed

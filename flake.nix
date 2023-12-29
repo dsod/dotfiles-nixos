@@ -7,13 +7,13 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     hardware.url = "github:nixos/nixos-hardware";
     nix-colors.url = "github:misterio77/nix-colors";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -23,15 +23,11 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
-    disconic.url = "github:misterio77/disconic";
-    website.url = "github:misterio77/website";
-    paste-misterio-me.url = "github:misterio77/paste.misterio.me";
-    yrmos.url = "github:misterio77/yrmos";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    nix-ld-rs.url = "github:nix-community/nix-ld-rs";
+    nix-ld-rs.inputs.nixpkgs.follows = "nixpkgs";
+
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:

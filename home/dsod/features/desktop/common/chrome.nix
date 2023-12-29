@@ -3,6 +3,7 @@
   programs.google-chrome = {
     enable = true;
      commandLineArgs = [
+        "--password-store=gnome-libsecret"
       ];
   };
 

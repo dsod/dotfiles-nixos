@@ -7,7 +7,6 @@
       }
     ))
     ./features/desktop/hyprland
-    ./features/development
   ];
 
   colorscheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;

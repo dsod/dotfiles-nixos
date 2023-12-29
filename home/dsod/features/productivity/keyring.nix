@@ -1,6 +1,10 @@
 {pkgs, ...}: {
   services.gnome-keyring = {
     enable = true;
-    components = [ "ssh" ];
+    components = [ "secrets" ];
   };
+
+  home.packages = with pkgs; [
+    gnome.seahorse
+  ];
 }

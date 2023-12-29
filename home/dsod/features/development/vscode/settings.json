@@ -1,0 +1,91 @@
+{
+  // Privacy
+  "telemetry.enableTelemetry": false,
+
+  "update.mode": "none",
+  "extensions.autoCheckUpdates": false,
+
+  "gitlens.views.repositories.files.layout": "list",
+
+  // Developer Tools
+  "emmet.showSuggestionsAsSnippets": true,
+
+  // ESLINT
+  "javascript.validate.enable": true,
+  "typescript.validate.enable": true,
+
+  // CSS
+  "css.validate": true,
+  "less.validate": true,
+  "scss.validate": true,
+
+  // Editor
+  "editor.fontLigatures": true,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "window.titleBarStyle": "custom",
+
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true,
+    "**/.cache": true,
+    "**/.direnv": true,
+    "**/tmp": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "**/.direnv": true,
+    "**/.git": true,
+    "**/.cache": true,
+    "**/tmp": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true,
+    "**/.direnv": true,
+    "**/.hg/store/**": true
+  },
+
+  // Formatter settings
+  "editor.formatOnSave": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+
+  // Editor settings
+  "editor.minimap.enabled": false,
+  "editor.suggestSelection": "first",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+
+  "explorer.decorations.badges": false,
+  "editor.lineHeight": 24,
+
+  "gitlens.mode.active": "zen",
+  "workbench.panel.defaultLocation": "right",
+  "editor.tabSize": 2,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+
+  "editor.fontFamily": "monospace",
+  "editor.fontWeight": "500",
+  "editor.fontSize": 16,
+  "terminal.integrated.defaultProfile.linux": "fish",
+  "terminal.external.linuxExec": "fish",
+  "editor.codeLensFontFamily": "monospace",
+  "terminal.integrated.fontFamily": "monospace",
+
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "workbench.colorTheme": "Catppuccin Macchiato",
+  "workbench.iconTheme": "catppuccin-macchiato",
+  "nxConsole.showNodeVersionOnStartup": false,
+  "git.enableSmartCommit": true,
+  "git.autofetch": true
+}

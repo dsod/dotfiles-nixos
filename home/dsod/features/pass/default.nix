@@ -5,10 +5,12 @@
     package = pkgs.pass.withExtensions (p: [ p.pass-otp ]);
   };
 
-  # TODO: Use instead of gnome-keyring
+  # TODO: Get this to somehow work with electron/chrome
   # services.pass-secret-service = {
   #   enable = true;
   #   storePath = "${config.home.homeDirectory}/.password-store";
-  #   extraArgs = [ "-e${config.programs.password-store.package}/bin/pass" ];
+  #   extraArgs = [ "-e ${config.programs.password-store.package}/bin/pass" ];
   # };
+
+
 }

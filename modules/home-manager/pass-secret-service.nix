@@ -4,6 +4,9 @@ with lib;
 
 let
   cfg = config.services.pass-secret-service;
+  passService = "${cfg.package}/bin/pass_secret_service";
+  execServiceArgs = "${lib.escapeShellArgs cfg.extraArgs}";
+  execService = "${passService} ${execServiceArgs}";
 in {
   disabledModules = [ "services/pass-secret-service.nix" ];
 
@@ -37,19 +40,35 @@ in {
 
     services.pass-secret-service.extraArgs = optional (cfg.storePath != null) "--path=${cfg.storePath}";
 
-    systemd.user.services.pass-secret-service = {
-      Unit = {
-        AssertFileIsExecutable = "${cfg.package}/bin/pass_secret_service";
-        Description = "Pass libsecret service";
-        Documentation = "https://github.com/mdellweg/pass_secret_service";
-        PartOf = [ "default.target" ];
+    systemd.user.services = {
+      pass-secret-service = {
+        Unit = {
+          AssertFileIsExecutable = "${passService}";
+          Description = "Pass libsecret service";
+          Documentation = "https://github.com/mdellweg/pass_secret_service";
+          PartOf = [ "default.target" ];
+        };
+
+        Service = {
+          ExecStart = execService;
+        };
+
+        Install = { WantedBy = [ "default.target" ]; };
       };
 
-      Service = {
-        ExecStart = "${cfg.package}/bin/pass_secret_service ${lib.escapeShellArgs cfg.extraArgs}";
-      };
+      "dbus-org.freedesktop.secrets" = {
+        Unit = {
+          AssertFileIsExecutable = "${passService}";
+          Description = "Expose the libsecret dbus api with pass as backend";
+        };
 
-      Install = { WantedBy = [ "default.target" ]; };
+        Service = {
+          BusName = "org.freedesktop.secrets";
+          ExecStart = execService;
+        };
+      };
     };
+
   };
+
 }
